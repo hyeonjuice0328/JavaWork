@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>HyperLinks</title>
+<!-- style 이라는 태그 사용 ! 꼭 head 안에서만 사용하기 -->
+<style>
+a {
+	text-decoration: none; /*a태그의 밑줄이 사라짐*/
+}
+a:link{ /*기본상태 스타일*/
+	color: green;
+}
+a:visited{ /*방문한상태 스타일*/
+	color: pink;
+}
+a:hover{ /*마우스가 올라간 상태*/
+	color: red;
+}
+a:active{ /*클릭한 잠깐의 상태*/
+	color: blue;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<!--
+기본 구문 : <a href="url">link text</a>
+ 
+ target attribute
+	_blank - 새 윈도우나 탭에 보여진다.
+	_self - 현재 브라우저창에 (디폴트)
+	_parent - 상위 frame 에
+	_top - 최 상위 윈도우에  
+ 
+ -->
+
+<a href="https://www.naver.com">네이버</a> <br>
+<!-- target="blank" 인터넷창이 뜰 때 별도의 창으로 띄우기   -->
+<a href="https://www.daum.net" target="_blank">다음</a> <br>
+<!-- 이미지 링크 만들기 -->
+<a href="https://w3schools.com">
+	<img src="https://www.w3schools.com/html/smiley.gif"
+	alt="HTML tutorial"/>
+	<!-- alt="text" 이미지 대체 텍스트 -->
+</a>
+</body>
+</html>
