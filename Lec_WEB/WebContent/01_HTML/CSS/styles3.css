@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+td {
+    border: 2px solid black;  /* 두께, 선종류, 선색상 */
+    border-collapse: collapse; /* border 붙이기 */
+}
+/* 셀 안쪽의 컨텐트와 border 사이 여백 */
+th, td {padding: 15px;	}
+td {text-align: center;}
+table {border:2px solid white}
