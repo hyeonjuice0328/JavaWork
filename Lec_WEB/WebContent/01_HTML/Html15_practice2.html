@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko>
+<head>
+<meta charset="UTF-8">
+<title>캘린더 폼 작성</title>
+<style>
+table, th, td {
+    border: 1px solid black;  /* 두께, 선종류, 선색상 */
+    border-collapse: collapse; /* border 붙이기 */
+}
+th, td {
+	padding: 15px;	/* 셀 안쪽의 컨텐트와 border 사이 여백 */
+	wi
+}
+td {text-align: center;}
+td#num1{
+	width: 25%;
+	background-color: skyblue;
+	color: white;
+}
+table#header{
+	border-width:3px;  
+    border-top-style:inset;
+	border: 2px solid grey;
+}
+td.table1{border: 1px solid white;}
+p#date{
+	color: blue;
+	text-align: center;
+	font-size: 30px;
+}
+td.num{text-align: left;}
+tr#day{background-color: lightgrey;
+		}
+table#content2{font-size:13px;}		
+</style>
+</head>
+<body>
+	<div id = "head">
+		<table id = "header" style= "width:100%">
+			<td class= "table1" width="25%">정책차림표</td>
+			<td class= "table1" width="25%">미리보는 지원사업</td>
+			<td class= "table1" width="25%">마감임박 지원사업</td>
+			<td class= "table1" id="num1" >접수중인 지원사업</td>
+		</table>
+	</div>
+	
+	<div>
+		<i></i>
+		<p id="date">&lt;&nbsp;2015-06-17&nbsp;&gt;</p>
+		<i></i>
+	</div>
+	
+		<div id="con">
+		<table id="content" style= "width:100%; text-align: left">
+			<tr id="radio">
+				<td colspan="7">
+				<input type="radio" checked/> 전체
+				<input type="radio" /> 창업.벤처
+				<input type="radio" /> 소상공인
+				<input type="radio" /> 판로.수출
+				<input type="radio" /> R&D
+				<input type="radio" /> 금융.세제
+				<input type="radio" /> 인력
+				</td>
+			<tr>
+			<tr id="day">
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			<tr>
+			<tr>
+				<td class="num" style="background-color: whitesmoke"></td>
+				<td class="num">1</td>
+				<td class="num">2</td>
+				<td class="num">3</td>
+				<td class="num">4</td>
+				<td class="num">5</td>
+				<td class="num">6</td>
+			<tr>
+			<tr>
+				<td class="num" style="background-color: cyan">7</td>
+				<td class="num">8</td>
+				<td class="num">9</td>
+				<td class="num">10</td>
+				<td class="num">11</td>
+				<td class="num">12</td>
+				<td class="num">13</td>
+			<tr>
+			<tr>
+				<td class="num">14</td>
+				<td class="num">15</td>
+				<td class="num">16</td>
+				<td class="num">17</td>
+				<td class="num">18</td>
+				<td class="num">19</td>
+				<td class="num">20</td>
+			<tr>
+			<tr>
+				<td class="num">21</td>
+				<td class="num">22</td>
+				<td class="num">23</td>
+				<td class="num">24</td>
+				<td class="num">25</td>
+				<td class="num">26</td>
+				<td class="num">27</td>
+			<tr>
+			<tr>
+				<td class="num">28</td>
+				<td class="num">29</td>
+				<td class="num">30</td>
+				<td class="num" style="background-color: whitesmoke"></td>
+				<td class="num" style="background-color: whitesmoke"></td>
+				<td class="num" style="background-color: whitesmoke"></td>
+				<td class="num" style="background-color: whitesmoke"></td>
+			<tr>
+		</table>
+	</div>
+	
+	<div id="para">
+	<p>2015년 6월 7일, 전체 검색결과, 진행중인 사업은 총 614건 입니다</p>
+	</div>
+	
+	<div id = "con2">
+		<table id = "content2" style= "width:100%">
+			<tr>
+				<th width="10%">번호</th>
+				<th width="40%">지원사업명</th>
+				<th width="20">주관부처</th>
+				<th width="20%">신청기간</th>
+				<th width="10%">조회</th>
+			</tr>
+			<tr>
+				<td style="border-right:hidden;border-left:hidden">1</td>
+				<td>2015년 창조경제 벤처창업대전 정부포상 및 전시회 참가 신청..</td>
+				<td>중소기업청</td>
+				<td>2015.06.04 ~ 2015.06.30</td>
+				<td>731</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>2015년 창조경제 벤처창업대전 정부포상 및 전시회 참가 신청..</td>
+				<td>중소기업청</td>
+				<td>2015.06.04 ~ 2015.06.30</td>
+				<td>731</td>
+			</tr>
+			<tr>
+				<td>614</td>
+				<td>2015년 창조경제 벤처창업대전 정부포상 및 전시회 참가 신청..</td>
+				<td>중소기업청</td>
+				<td>2015.06.04 ~ 2015.06.30</td>
+				<td>731</td>
+			</tr>
+			<tr>
+				<td>614</td>
+				<td>2015년 창조경제 벤처창업대전 정부포상 및 전시회 참가 신청..</td>
+				<td>중소기업청</td>
+				<td>2015.06.04 ~ 2015.06.30</td>
+				<td>731</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+</body>
+</html>
