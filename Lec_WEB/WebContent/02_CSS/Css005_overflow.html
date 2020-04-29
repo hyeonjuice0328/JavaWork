@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<style>
+div{  background-color: lightblue;
+  width: 110px;
+  height: 110px;}
+</style>
 <meta charset="UTF-8">
 <title>overflow</title>
 <!-- 
@@ -26,31 +31,18 @@ y축(수직) overflow 값에 대해서만 설정할때는 overflow-y
  -->
 <style>
 div.ex1 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  /* TODO */
+  overflow: scroll;
 }
 
 div.ex2 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  /* TODO */
+  overflow: hidden;
 }
 
 div.ex3 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  /* TODO */
+  overflow: auto; /*넘칠때 넘치는 부분에만 scoll적용*/
 }
-
 div.ex4 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  /* TODO */
+  overflow: visible;
 }
 </style>
 </head>
