@@ -15,17 +15,17 @@
 	padding: 15px;
 }
 
-.clear{
-	clear: both;
-}
+.clear{clear: both;}
 
-/* class 값에 "col-" 를 가진 요소*/
-[class *= "col-"]{ /* col-으로 구성되어 있는 모든것들에 대해 적용*/
+
+[class *= "col-"]{
+	
     float: left;
     padding: 15px;
     border: 1px solid red;
 }
 
+@media screen and (min-width: 768px){
 .col-1{width: 8.33%;} /*12등분 중의 1칸의 폭*/
 .col-2{width: 16.66%;} /*12등분 중의 2칸의 폭*/
 .col-3 {width: 25%;}
@@ -38,6 +38,23 @@
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12{width: 100%;} /*12칸의 폭*/
+}
+
+@media screen and (min-width: 600px){
+.col-t-1{width: 8.33%;} /*12등분 중의 1칸의 폭*/
+.col-t-2{width: 16.66%;} /*12등분 중의 2칸의 폭*/
+.col-t-3 {width: 25%;}
+.col-t-4 {width: 33.33%;}
+.col-t-5 {width: 41.66%;}
+.col-t-6 {width: 50%;}
+.col-t-7 {width: 58.33%;}
+.col-t-8 {width: 66.66%;}
+.col-t-9 {width: 75%;}
+.col-t-10 {width: 83.33%;}
+.col-t-11 {width: 91.66%;}
+.col-t-12{width: 100%;} /*12칸의 폭*/
+}
+
 
 </style>
 
