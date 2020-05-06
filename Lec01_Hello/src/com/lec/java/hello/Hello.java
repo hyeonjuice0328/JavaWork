@@ -8,7 +8,7 @@ package com.lec.java.hello;
 public class Hello {
 
 	public static void main(String[] args) {
-		System.out.println("Hello Java!!");// 한줄 주석 : line comment
+		System.out.println("Hello Java!! ");// 한줄 주석 : line comment
 		System.out.println("안녕하세요"); // println() 은 화면 출력하고 한줄 띄기.
 		
 		System.out.println();
@@ -28,3 +28,4 @@ public class Hello {
 	}
 
 }
+
