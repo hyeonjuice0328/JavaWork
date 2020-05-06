@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 * {
-	box-sizing: border-box;  /* RWD 필수 */
+	box-sizing: border-box;  /* RWD(Responsible Web Design) 필수 */
 }
 
 .header{
