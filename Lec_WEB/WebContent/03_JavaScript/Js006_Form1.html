@@ -32,10 +32,107 @@ div#btnBox * { margin: 2px; }
 function showData(){
   var result = "입력결과<br>"
 
+  // Form 객체 가져오기 (name 사용)
+  //** form은 오브젝트타입 프로퍼티 이므로 id 나 class 가 아닌 [name] 을 가지고 온다.
+  //방법1//var frm = document.forms["myform1"];
+  var frm = document.forms.myform1;
+
+  // 1. 일반적인 input 값 form 에 입력된 결과는 자바스크립트로 가져오기 
+  // .value 값
+  var username = frm["username"].value;
+
+  // 아래와 같이 동작된다.
+  // username = document["forms"]["myform1"]["username"].value;
+  // username = document.forms["myform1"]["username"].value;
+  // username = document.forms.myform1.username.value;
+
+  result += "이름: " + username + "<br>";
+
+  // 2. 체크 박스에 있는 값 가져오기 
+  // .checked 로 판단
+  var hobby ="";
+
+  if(frm["drive"].checked){
+    hobby += frm["drive"].value + ", ";
+  }
+  if(frm["music"].checked){
+    hobby += frm["music"].value + ", ";
+  }
+  if(frm["sports"].checked){
+    hobby += frm["sports"].value + ", ";
+  }
+
+  result+="취미: " + hobby + "<br>";
+
+  // 3. 체크박스 동일 name 이 여럿인 경우
+  var skill = "";
+
+  // frm["skill"] -->  skill 이라는 이름을 갖고있는 element 들의 배열(?) 임
+  for(i = 0; i < frm["skill"].length; i++){
+    if(frm["skill"][i].checked){
+      skill += frm["skill"][i].value + ", ";
+    }
+  }
+
+  // 4. Radio / same name 위와 유사
+  var gender = "";
+
+  // frm["skill"] -->  skill 이라는 이름을 갖고있는 element 들의 배열(?) 임
+  for(i = 0; i < frm["gender"].length; i++){
+    if(frm["gender"][i].checked){
+      gender += frm["gender"][i].value;
+      break;
+    }
+  }
+  result += "성별: " + gender + "<br>";
+
+  // 5. <select> 단일   .value 사용
+  result += "좋아하는차1: " + frm["cars"].value + "<br>";
+
+  // 6. <select> :multiple 3번과 유사 .selected 사용
+  var cars2 = "";
+  for(i = 0; i < frm["cars2"].length; i++) {
+    if(frm["cars2"][i].selected){
+      cars2 += frm["cars2"][i].value + ", ";
+    }
+  }
+  result += "좋아하는차2: " + cars2 + "<br>";
+
+  // 7. textarea / text값이 아니라 content 자체가 text 이다.
+  //    그래서 .value(현재사용자가입력한값) 혹은 .innerHTML(HTML의 content 값:코드상의입력값) 로 값을 가져올 수 있다.
+  result += "메모: " + frm["message"].value + "<br>";
+
   document.getElementById("result").innerHTML = result;
 }
 
 function setData(){
+  var frm = document.forms["myform1"];
+
+  //input
+  frm["username"].value = "조현주";
+  //checkbox
+  frm["drive"].checked = false;
+  frm["music"].checked = true;
+  frm["sports"].checked = true;
+  //checkbox (same name)
+  frm["skill"][0].checked = false;
+  frm["skill"][1].checked = true;
+  frm["skill"][2].checked = true;
+  //radio button(checked 사용!)
+  frm["gender"][0].checked = true;
+  //select 단일
+  frm["cars"].value = 'fiat';
+  frm["cars"][1].selected = true; // 마지막에 셋팅 된 값이 최종(단일선택조건이므로)
+  //select multiple
+  frm["cars2"][0].selected = true;
+  frm["cars2"][1].selected = true;
+  frm["cars2"][2].selected = false;
+  frm["cars2"][3].selected = false;
+  // textarea : .value, .innerHTML
+  //frm["message"].value = '하이하이';
+  frm["message"].innerHTML = '하이하이HTML';
+  //frm['message'].innerHTML = '이제 쉬는 시간이다';
+
 
 }
 
