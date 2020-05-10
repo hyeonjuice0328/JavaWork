@@ -21,6 +21,7 @@ console.log('value=', value);
 const b = 1;
 console.log('b=', b)
 //b = 2; -- 오류
+
 console.log('b=', b)
 
 //-------------------------------------------------

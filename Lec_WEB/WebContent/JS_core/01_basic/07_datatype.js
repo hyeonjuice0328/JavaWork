@@ -65,87 +65,76 @@ console.log('\n<null>');
 {
     const a = null;
     console.log('a = ', a, typeof a);
-
-}
+}   // 결과 : a =  null object
 
 //---------------------------------------------------------------------------
 // undefined
 // 아무 값도 대입이 안된 상태
 {
-    let b; // 아무값도 대입 안된 상태 , undefined
-    console.log('b =', b, typeof b);
+    let b; 
+    console.log('b =', b, typeof b); //결과: b = undefined undefined
 
     let a = 10;
-    a = undefined; // 다시 undefined 로 대입가능
-    console.log('a =', a, typeof a);
+    // 다시 undefined 로 a 에 대입가능
+    a = undefined; 
+    console.log('a =', a, typeof a); //결과: a = undefined undefined
 
     a = null; b = undefined;
-    if(a == b){ // 단순히 값만 비교
-        console.log('== 같습니다.');
-    } else { 
-        console.log('== 다릅니다');
-    }
+    // 단순 값만 비교
+    if(a == b){ console.log('== 같습니다.');} 
+    else { console.log('== 다릅니다');} //결과: ==같습니다.
 
-    if(a === b){ // 값과 타입까지 비교
-        console.log('=== 같습니다.');
-    } else { 
-        console.log('=== 다릅니다');
-    }
+    // 값과 타입까지 비교
+    if(a === b){ console.log('=== 같습니다.');} 
+    else { console.log('=== 다릅니다');} //결과: ===다릅니다.
+
     // ** JS 프로그래밍에 작성시 == 보다 === 를 추천
     // != 보단 !== 추천
-
 }
 
 //---------------------------------------------------------------------------
 // number
 console.log('\n<number>')
 {
-    // 실수 정수 모두 number type
     const a = 37;
-    console.log('a =', a, typeof a);
+    console.log('a =', a, typeof a);//결과: a = 37 number
     const b = 3.14;
-    console.log('b =', b, typeof b);
+    console.log('b =', b, typeof b);//결과: b = 3.14 number
 
-    const c = NaN; // Not a Number 의 약자 
-    console.log('c =', c, typeof c);
+    const c = NaN; 
+    console.log('c =', c, typeof c);//결과: c = NaN number
     
     let d = Number(123);
-    console.log('d =', d, typeof d); // number
-    
-    d = Number('123'); // number로 형변환 되었음
-    console.log('d =', d, typeof d); 
-    
-    d = Number('Mark'); // number로 형변환 안됨
-    console.log('d =', d, typeof d); // NaN number 
+    console.log('d =', d, typeof d);//결과: d = 123 number
 
-    d = parseInt('123'); // number 로 형변환
-    console.log('d =', d, typeof d);
-
-    d = parseInt('Alice'); 
-    console.log('d =', d, typeof d); // NaN number 
+    // 문자열'123'을 number로 (자동) 형변환 되었음
+    d = Number('123'); 
+    console.log('d =', d, typeof d);//결과: d = 123 number
     
-    d = parseFloat('3.14');
-    d *= 2;
-    console.log('d =', d, typeof d);
+    // 문자는 number로 형변환 되지 않는다.
+    d = Number('Mark'); 
+    console.log('d =', d, typeof d);//결과: d = NaN number
 
-    d = parseInt('3.14'); 
-    console.log('d =', d, typeof d);
+    // parseInt 를 사용해서 문자열을 number 로 형변환
+    d = parseInt('123'); 
+    console.log('d =', d, typeof d);//결과: d = 123 number
     
-    d = parseFloat('300'); 
-    console.log('d =', d, typeof d);
+    d = parseFloat('3.14');d *= 3;
+    console.log('d =', d, typeof d);//결과: d = 9.42 number
 
     num1 = 100; num2 = '100';
     if(num1 == num2){
         console.log(`${num1} == ${num2} 같다`);
     } else {
         console.log(`${num1} == ${num2} 다르다`);
-    }
+    } // 결과 : 100 == 100 같다
     
+
     if(num1 === num2){
         console.log(`${num1} === ${num2} 같다`);
     } else {
         console.log(`${num1} === ${num2} 다르다`);
-    }
+    } // 결과 : 100 === 100 다르다
 }
 
 //---------------------------------------------------------------------------
@@ -154,37 +143,34 @@ console.log('\n<number>')
 console.log('\n<string>')
 {
     let a = 'Mark';
-    console.log('a =', a, typeof a);
+    console.log('a =', a, typeof a); // 결과 : a = Mark string
     
     a = "She's gone";
-    console.log('a =', a, typeof a);
+    console.log('a =', a, typeof a); // 결과 : a = She's gone string
 
     a = 'He says "Hello"';
-    console.log('a =', a, typeof a);
+    console.log('a =', a, typeof a); // 결과 : a = He says "Hello" string
     
     a = "He says \"I'm fine\"";
-    console.log('a =', a, typeof a);
+    console.log('a =', a, typeof a); // 결과 : a = He says "I'm fine" string
 
     // + 문자열 연산
     a = "Mark"
     let b = a + " Hamill";
-    console.log('b =', b, typeof b);
+    console.log('b =', b, typeof b); // 결과 : b = Mark Hamill string
 
-    console.log(a * 2); // NaN
+    console.log(a * 2); // 결과 : NaN
 
     // 문자열 비교연산 가능!
-    // 코드값 비교 
-    if("a" > "b") {
-        console.log('참 입니다');
-    } else {
-        console.log('거짓 입니다');
-    }
+    // 코드값 비교가능!
+    if("a" > "b") { console.log('참 입니다'); } 
+    else {console.log('거짓 입니다'); } // 결과 : 거짓 입니다
     
-    // 문자열 비교연산 코드순 비교
-    console.log("a">"b");
-    console.log("a"<"b");
-    console.log("abc"<"abd");
-    console.log("AAaa">"AaAa"); // 대문자 < 소문자
+    // 문자열 비교연산 코드순 비교 ( 대문자 < 소문자)
+    console.log("a">"b"); // 결과 : false
+    console.log("a"<"b"); // 결과 : true
+    console.log("abc"<"abd"); // 결과 : true
+    console.log("AAaa">"AaAa"); // 결과 : false
 }
 
 //-------------------------------------------------
@@ -197,24 +183,24 @@ console.log('\n<string>')
 console.log('\n<symbol>');
 
 {
-    const a = Symbol(); // new 사용이 안됨
-    const b = Symbol(37); // Symbol(매개변수)
+     // new 사용이 안된다. 
+    const a = Symbol();
+    // Symbol(매개변수)
+    const b = Symbol(37); 
     const c = Symbol('Mark');
     const d = Symbol('Mark');
-    // c 와 d 는 같은 것이 아니다. 
-    // 고유한 symbol 객체로 만들어 진다.
 
-    console.log('a =', a, typeof a);
-    console.log('b =', b, typeof b);
-    console.log('c =', c, typeof c);
-    console.log('d =', d, typeof d);
+    console.log('a =', a, typeof a);// 결과 : a = Symbol() symbol
+    console.log('b =', b, typeof b);// 결과 : b = Symbol(37) symbol
+    console.log('c =', c, typeof c);// 결과 : c = Symbol(Mark) symbol
+    console.log('d =', d, typeof d);// 결과 : d = Symbol(Mark) symbol
 
-    console.log(c == d);
-    console.log(c === d);
+    console.log(c == d);// 결과 : false
+    console.log(c === d);// 결과 : false
 
     //일반문자열
     let e = 'Mark', f = 'Mark';
 
-    console.log(e == f);
-    console.log(e === f);
+    console.log(e == f);// 결과 : true
+    console.log(e === f);// 결과 : true
 }
