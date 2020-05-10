@@ -4,13 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SideBar</title>
-<!-- 
-	700px 이상
-	700px ~ 400px 사이 일때
-	400px 이하 일때
-	
-	서로 다른형태로 보이는 Side menu
- -->
 <style>
 body {
   margin: 0;
@@ -18,7 +11,7 @@ body {
 }
 
 .sidebar {
-  margin: 0;
+  margin: 0 0 0 0;
   padding: 0;
   width: 200px;
   background-color: #f1f1f1;
@@ -38,7 +31,7 @@ body {
   background-color: #4CAF50;
   color: white;
 }
-
+/*.active 만 제외하고 hover 적용*/
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
@@ -68,7 +61,6 @@ div.content {
     float: none;
   }
 }
-
 </style>
 </head>
 <body>
@@ -82,10 +74,38 @@ div.content {
 
 <div class="content">
   <h2>Responsive Sidebar Example</h2>
-  <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
-  <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
+  <p>This example use media queries to transform the sidebar to 
+  	a top navigation bar when the screen size is 700px or less.</p>
+  <p>We have also added a media query for screens that are 400px or less, 
+  	which will vertically stack and center the navigation links.</p>
   <h3>Resize the browser window to see the effect.</h3>
 </div>
 
 </body>
 </html>
+
+
+<!-- 
+	700px 이상
+	700px ~ 400px 사이 일때
+	400px 이하 일때
+	
+	서로 다른형태로 보이는 Side menu
+ -->
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
