@@ -47,8 +47,9 @@ HTML element를 다루기 위한
 <p id="demo3">세번째 demo 입니다</p>
 
 <script>
-//TODO : id 값이 중복되는 경우 첫번째 element 만 가져온다.
-
+//TODO : id 값이 중복되는 경우 첫번째(최초로 발견된) element 만 가져온다.
+document.write('결과: ' + document.getElementById('demo1').innerHTML);
+document.getElementById('demo3').innerHTML = 'chaged???';
 </script>
 
 <hr>
@@ -60,7 +61,12 @@ HTML element를 다루기 위한
 
 <script>
 // div element들을 찾아서 차례대로 "div1 입니다" "div2 입니다"..  로 내용 바꾸기
-// TODO
+var elements = document.getElementsByTagName('div');
+
+for(i = 0; i < elements.length; i++){
+	var element = elements[i];
+	element.innerHTML = "div" + i + "입니다.";
+}
 
 </script>
 
@@ -78,7 +84,11 @@ HTML element를 다루기 위한
 // getElementsByClassName("c3")
 // element.style.background
 
-// TODO
+elements = document.getElementsByClassName('c3');
+for(i = 0; i < elements.length; i++){
+	var element = elements[i];
+	element.style.backgroundColor='yellow';
+}
 
 </script>
 
@@ -95,7 +105,13 @@ name2: <input type="text" value="name2" name="name2"/><br>
 // name=name1 인 element들을 찾아서
 // 배경색을 노란색으로 하고 입력사이즈를 50으로 변경해보기
 
-// TODO
+elements = document.getElementsByName("name1");
+for(i = 0; i < elements.length; i++){
+	var element = elements[i];
+	element.style.background='yellow';
+	element.size = 50;
+	element.disabled = true; // value 가 없는 attribute
+}
 
 </script>
 
@@ -109,7 +125,11 @@ name2: <input type="text" value="name2" name="name2"/><br>
 <script>
 // p.intro selector 에 해당하는 element 들을 찾아서 배경색 하늘색으로
 
-// TODO
+elements = document.querySelectorAll('p.intro');
+for(i = 0; i < elements.length; i++){
+	var element = elements[i];
+	element.style.background='cyan';
+}
 
 </script>
 
@@ -120,7 +140,7 @@ document.anchors
 document.body
 document.documentElement
 document.embeds
-document.forms
+document.forms : 현재 문서에서 form 만 담겨있는 property
 document.head
 document.images
 document.links
@@ -155,7 +175,16 @@ document.title
 <script>
 // form 들을 다 뒤져서 form element 들의 value 들을 
 
-// TODO
+var frm1 = document.forms['frm1'];
+var result = "";
+
+for(i = 0; i < frm1.length; i++){ //frm1.length : 그 안에 form element 들의 갯수
+	result += frm1.elements[i].value + " "; // form 요소의 elements 배열
+}
+document.getElementById('frm_result1').innerHTML = result;
+document.getElementById('frm_result2').innerHTML = 
+						//document.forms['frm1']['input2_2'].value
+						document.forms.frm2.input2_2.value;
 
 </script>
 
@@ -168,8 +197,14 @@ document.title
 <p id="demo4"></p>
 
 <script>
+// 모든 이미지들의 테두리를 "4px solid blue" 로 만들기
+var elements = document.images; // <img> elements
 
-// TODO
+for(i = 0; i< elements.length; i++){
+	var element = elements[i];
+	element.style.border = "4px solid blue"
+}
+document.getElementById('demo4').innerHTML = elements.length + "개의 이미지";
 
 </script>
 

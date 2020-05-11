@@ -25,7 +25,7 @@ JS 로 DOM 의 node 간 navigate 할수 있다.
 - lastChild
 - nextSibling
 - previousSibling
-- attributes
+- attributes : 특정 element 의 attribute 를 끄집어 내기 
 
  -->
 <body>
@@ -35,8 +35,8 @@ JS 로 DOM 의 node 간 navigate 할수 있다.
 <p id="id02"></p>
 
 <script>
-
-// TODO
+document.getElementById('id02').innerHTML =
+	document.getElementById('id01').innerHTML;
 
 </script>
 
