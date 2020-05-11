@@ -57,11 +57,21 @@
 </div>
 
 <script>
-var infoTxt = "https://www.w3schools.com/js/ajax_info.txt";
+var url = "https://www.w3schools.com/js/ajax_info.txt";
 function loadDoc() {
 
-	// TODO
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() { // 함수로 ..
+		//state값이 변경될때마타 호출되는 함수 
+		if(this.readyState == 4 && this.status == 200){
+			document.getElementById('demo').innerHTML =
+			this.responseText;
+		}
+	};
 
+	xhttp.open('GET', url, true);
+	// request 보내기
+	xhttp.send();
 }
 </script>
 <!-- 
