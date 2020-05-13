@@ -49,8 +49,39 @@ $(document).ready(function(){
 		  var $box2 = $(".box2");
 		  var $box3 = $(".box3");
 
-		  // TODO
+		// 왼쪽으로 200px 움직이는데 1초에 걸쳐서 이동.
+		//   $box1.animate({left : "200px"}, 1000);
+		//   $box2.animate({top : "0px"}, 1500);
+		//   $box3.animate({top : "150px"}, 2000);
 		  
+		// box1 과 box2 의 애니메이션이 다 끝나고 나서 box3가 움직이게 하려면? 
+
+		// $box1.animate({left : "200px"}, 1000);
+		// $box2.animate({top : "0px"}, 1500, function(){
+		//   $box3.animate({top : "150px"}, 2000);
+		//   });
+
+		// $box1.animate({left : "200px"}, 1000);
+		// $box2.animate({top : "0px"}, 1500);
+		// $box3.delay(1500).animate({top : "150px"}, 2000);
+
+		// box1, box2 중 누가 먼저 끝날지 알수 없거나 얼마 후에 끝나는지 모른다면?
+
+		// $.when()사용
+		// 이벤트들이 끝나면 수행하는 Promise 객체 리턴
+		// = thenable object (= deferred object)
+		$box1.animate({left : "200px"}, 1000);
+		$box2.animate({top : "0px"}, 1500);
+		// box1, box2의 이벤트가 끝나면 promise 객체 리턴
+		$.when($box1, $box2).then(function(){
+			//alert("완료!");
+		$box3.animate({left: "200px" }, 2000);
+		}).then(function(){
+			$box3.animate({ top : "150px"}, 2000);
+		})
+		;
+
+		
 	});	
 });
 </script>

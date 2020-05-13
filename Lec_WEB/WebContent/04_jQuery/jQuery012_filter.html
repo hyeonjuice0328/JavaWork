@@ -20,7 +20,19 @@ tr:nth-child(even){
 
 <script>
 
-// TODO
+	$(document).ready(function(){
+		$("#myInput").on("keyup", function(){
+			var value = $(this).val().toLowerCase();
+
+			// filter(callback)
+			// callback() 안에서 각 element 에 대한 조작 가능. (함수 입력 가능)
+			$("#myTable tr").filter(function(){
+				// toggle(true) : 나타나게하기
+				// indexof() : 값은 찾지 못하면 -1 return 
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+			});
+		});
+	});
 
 </script>
 

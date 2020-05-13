@@ -1,1 +1,45 @@
 @charset "UTF-8";
+
+#ad-1 * {
+    list-style : none; /*기본 스타일 제거 */
+    margin : 0px;
+
+}
+
+#ad-1 {
+    width: 100%;
+    height: 300px;
+    position: relative; /*부모이기 때문에 , 안에 요소들이 absolute 를 사용하려고*/
+    overflow: hidden; /*배너 영역 밖은 안보이게*/
+    background-image: url("image/background.png");
+    background-position: center;
+    background-repeat: repeat;
+}
+
+/*바다*/
+#ad-1 ul#water {
+
+}
+
+#ad-1 li#water-back{
+    background-image: url("image/water-back.png");
+    width: 110%;
+    height: 84px;
+    z-index: 1; /*화면에서 가로(x) 세로(y) z 축은 3차원 겹겹이쌓인다*/
+    background-repeat: repeat-x;
+    position: absolute;
+    left: -20px;
+    bottom: 10px;   
+}
+
+#ad-1 li#water-front{
+    background-image: url(image/water-front.png);
+    background-repeat: repeat-x;
+    z-index: 3;
+    width: 110%;
+    height: 158px;
+    position: absolute;
+    /*최초의 시작 위치*/
+    left: -30px;
+    bottom: -70px;
+}
