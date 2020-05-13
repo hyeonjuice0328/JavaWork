@@ -1,6 +1,94 @@
+@charset "UTF-8";
+html {font-size: 0.625em;
+    font-family: 'Suisse Regular', sans-serif;}
+body {
+    font-family: 'Suisse Regular', sans-serif;
+    font-size: 1.6rem;
+    }
+h1,h2,h3,h4,h5,h6,
+p {
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
 
-
-
+* {
+    box-sizing: inherit;
+  }
+  html {
+    box-sizing: border-box;
+    color: #333;
+    height: 100%;
+  }
+  body {
+    background-color: #252525;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    transition: margin-top 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .Aesop {
+    background-color: #FFFEF2;
+    min-height: 100%;
+  }
+  .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important; /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important; /* 3 */
+    width: 1px !important;
+  }
+  body.has-noScrolling {
+    overflow: hidden
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding: 0;
+  }
+  .Btn {
+    border: 1px solid rgba(51, 51, 51, .2);
+    height: 60px;
+    min-width: 210px;
+    padding: 21px 23px;
+    position: relative;
+    transition: all 500ms ease;
+  }
+  body.has-tabbed .Btn:not(.is-disabled):focus,
+  body:not(.has-touch) .Btn:not(.is-disabled):hover {
+  background-color: #333;
+}
+.Btn .LoadingIndicator {
+    left: calc(50% - 15px);
+    right: auto;
+  }
+  .Btn:active {
+    background-color: #000;
+  }
+  .Btn.is-disabled {
+    background-color: #FFFEF2;
+    border-color: #D5D5CC;
+    cursor: default;
+  }
+  .Btn.is-action {
+    pointer-events: none;
+  }
+  .Btn.Btn--filled {
+    background-color: #333;
+  }
 .MCSplitHero{
 color: #333;
 font-family: 'Suisse Regular', sans-serif;
@@ -23,15 +111,79 @@ text-align: center;
 box-sizing: inherit;
 }
 
-.MCSplitHero-backgroundImg #mainPcImg{
-src: url("https://www.aesop.com/medias/Aesop-Rozu-Campaign-Homepage-Primary-50-50-Desktop-1440x1500px.jpg?context=bWFzdGVyfGltYWdlc3wyMzEzOTZ8aW1hZ2UvanBlZ3xpbWFnZXMvaGZiL2hkMi85MjkwNjE5NjE3MzEwLmpwZ3w1YmY3Nzg3ZmMyMDI4OWQ0MWNkMTY3ZDQ4MzQwYTc3ZDAyY2ZlMWU3ZGU2OGY1MjVjODhmOTA4ZGQ0NWZkMTQ1");
+div.MCSplitHero-imgWrapper {
+background-image: url(image/Main_pc.jpg);
+z-index: 100;
+min-width: 1025px;
+width: auto;
+height: auto;
+position: absolute;
+/*최초의 시작 위치*/
+/* left: -30px;
+bottom: -70px; */
 }
 
-.MCSplitHero-backgroundImg #mainTableImg{
-
+.MCCarouselNav MCCarouselNav--prev{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+box-sizing: inherit;
+align-items: center;
+background-color: rgba(0, 0, 0, .001);
+height: 100%;
+overflow: hidden;
+position: absolute;
+z-index: 100;
+justify-content: flex-start;
+left: 0;
+width: 150px;
+display: none;
 }
 
-.MCSplitHero-backgroundImg #mainMobileImg{
+.flickity-viewport{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+box-sizing: inherit;
+position: relative;
+overflow: visible;
+cursor: grab;
+height: 511px;
+touch-action: pan-y;
+}
+.flickity-slider{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+cursor: grab;
+box-sizing: inherit;
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0px;
+transform: translateX(-75%);
+}
 
-
-}    
+.MCItemCarousel-Item{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+cursor: grab;
+box-sizing: inherit;
+bottom: 0;
+max-width: 450px;
+width: 35%;
+-webkit-user-drag: none;
+position: absolute;
+left: 0%;
+}

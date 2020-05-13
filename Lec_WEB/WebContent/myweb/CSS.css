@@ -1,55 +1,13 @@
-
- :root { }
-
-  @font-face {
-    font-family: 'Portrait Web';
-    src: url('../fonts/Portrait/Portrait-Regular-Web.woff2') format('woff2'),
-      url('../fonts/Portrait/Portrait-Regular-Web.woff') format('woff'),
-      url('../fonts/Portrait/Portrait-Regular-Web.eot');
-  }
-  @font-face {
-    font-family: 'Suisse Regular';
-    src: url('../fonts/Suisse/SuisseIntl-Regular-WebS.woff2') format('woff2'),
-      url('../fonts/Suisse/SuisseIntl-Regular-WebS.woff') format('woff'),
-      url('../fonts/Suisse/SuisseIntl-Regular-WebS.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Suisse Medium';
-    src: url('../fonts/Suisse/SuisseIntl-Medium-WebS.woff2') format('woff2'),
-      url('../fonts/Suisse/SuisseIntl-Medium-WebS.woff') format('woff'),
-      url('../fonts/Suisse/SuisseIntl-Medium-WebS.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Suisse SemiBold';
-    src: url('../fonts/Suisse/SuisseIntl-SemiBold-WebS.woff2') format('woff2'),
-      url('../fonts/Suisse/SuisseIntl-SemiBold-WebS.woff') format('woff'),
-      url('../fonts/Suisse/SuisseIntl-SemiBold-WebS.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Zapf Humanist';
-    src: url('../fonts/Zapf/324B1A_0_0.woff2') format('woff2'),
-      url('../fonts/Zapf/324B1A_0_0.woff') format('woff'),
-      url('../fonts/Zapf/324B1A_0_0.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Canela Light';
-    src: url('../fonts/Canela/Canela-Light-Web.woff2') format('woff2'),
-      url('../fonts/Canela/Canela-Light-Web.woff') format('woff'),
-      url('../fonts/Canela/Canela-Light-Web.eot');
-  }
+@charset "UTF-8";
   html {font-size: 0.625em}
   html[lang='ko'] {
     font-family: 'Suisse Regular', sans-serif;
-    word-break: keep-all;
   }
   body {
     font-family: 'Suisse Regular', sans-serif;
     font-size: 1.6rem;
-    -webkit-font-smoothing: antialiased;
   }
-  html[lang='jp'] body {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
+  
   h1,h2,h3,h4,h5,h6,
   p {
     font-size: inherit;
@@ -63,9 +21,7 @@
     font-family: 'Suisse Medium', sans-serif;
     font-weight: normal;
   }
-  html[lang='jp'] strong, html[lang='jp'] b {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
+
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -10761,8 +10717,8 @@
     color: #FFFEF2;
     display: block;
     font-size: 1.1rem;
-    height: 26px;
-    line-height: 26px;
+    height: 13px;
+    line-height: 13px;
     margin: 0 0 0 5px;
     padding: 0;
     position: relative;
@@ -10770,11 +10726,9 @@
     text-align: center;
     text-indent: -99999px;
     transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    width: 26px;
+    width: 13px;
   }
-  html[lang='jp'] .Nav-cart {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
+
   .has-lightNavigation:not(.has-darkLogoAndNav)
       .Nav-header:not(.is-fixed-visible)
       .Nav-cart {
