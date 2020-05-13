@@ -1,0 +1,37 @@
+
+
+
+.MCSplitHero{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+box-sizing: inherit;
+display: flex;
+margin-top: -155px;
+margin-bottom: -50px;
+min-height: 65vh;
+background-color: #643E43;
+}
+
+.MCSplitHero-backgroundImg {
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+color: #FFFEF2;
+text-align: center;
+box-sizing: inherit;
+}
+
+.MCSplitHero-backgroundImg #mainPcImg{
+src: url("https://www.aesop.com/medias/Aesop-Rozu-Campaign-Homepage-Primary-50-50-Desktop-1440x1500px.jpg?context=bWFzdGVyfGltYWdlc3wyMzEzOTZ8aW1hZ2UvanBlZ3xpbWFnZXMvaGZiL2hkMi85MjkwNjE5NjE3MzEwLmpwZ3w1YmY3Nzg3ZmMyMDI4OWQ0MWNkMTY3ZDQ4MzQwYTc3ZDAyY2ZlMWU3ZGU2OGY1MjVjODhmOTA4ZGQ0NWZkMTQ1");
+}
+
+.MCSplitHero-backgroundImg #mainTableImg{
+
+}
+
+.MCSplitHero-backgroundImg #mainMobileImg{
+
+
+}    

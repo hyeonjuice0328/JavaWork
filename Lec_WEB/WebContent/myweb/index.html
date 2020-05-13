@@ -8,36 +8,73 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../myweb/Js.js"></script>
     <link href="../myweb/CSS.css" rel="stylesheet" type="text/css">
+    <link href="../myweb/MyCSS.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="language-ko" style="margin-bottom: 516px !important;">
     <div class="Aesop">
+        <div class="AlertBanner">
+            <div class="AlertBanner-body is-showing is-animated">
+                <p>이솝 공식 홈페이지를 이용해 주셔서 감사합니다. 주문 폭주 및 배송사의 사정으로 배송 
+                    지연이 발생 될 수 있는 점 참고 부탁 드립니다.</p>
+            </div>
+        </div>
+        <div class="ShippingBanner">
+            <div class="ShippingBanner-body is-showing is-animated" data-banner-id="kr=shipping-banner-and-modal">
+                <div class="BannerContent BannerContent--expandable">
+                    <button class="ShippingBanner-openModalBtn" type="button">
+                        <p class="ShippingBaner-content">전 제품 무료 배송 혜택을 즐겨보세요.</p>
+                    </button>
+                </div>
+            </div>
+        </div>
         <div>
             <nav class="Nav">
-                <div class="Nav-large-header">
-                    <ul class="nav-list">
-                        <li class="nav-listItem">
-                            <a><span>제품보기</span></a>
+                <div class="Nav-large Nav-header">
+                    <div class="NavBarAlertBanner is-closed">
+                        <div class="NavBarAlertBanner-wrapper">
+                            <p class="NavBarAlertBanner-description"> 카트가 비어있습니다.</p>
+                        </div>
+                    </div>
+                    <ul class="Nav-list Nav-list--inline Nav-list--mainNav">
+                        <li class="Nav-listItem">
+                            <a class="Link Nav-listLink" href="https://www.aesop.com/kr/shop/">
+                                <span class="Link-content">제품보기</span>
+                            </a>
+                        </li>
+                        <li class="nav-listItem" >
+                            <a class="Link Nav-listLink" href="https://www.aesop.com/kr/read/">
+                                <span class="Link-content">읽기</span>
+                            </a>
                         </li>
                         <li class="nav-listItem">
-                            <a><span>읽기</span></a>
+                            <a class="Link Nav-listLink">
+                                <span class="Link-content">스토어</span></a>
                         </li>
                         <li class="nav-listItem">
-                            <a><span>스토어</span></a>
-                        </li>
-                        <li class="nav-listItem">
-                            <a><span>검색</span></a>
+                            <a class="Link Nav-listLink">
+                                <span class="Link-content">검색</span></a>
                         </li>
                     </ul>
-                    <ul class="logIO">
-                        <li class="login">
-                            <a><span>로그인</span></a>
+                    <ul class="Nav-list Nav-list-loginAndCart Nav-list--inline">
+                        <li class="Nav-listItem Nav-listItem--noMargin">
+                            <a class="Link Nav-listLink" href="#">
+                                <span class="Link-content">로그인</span>
+                            </a>
                         </li>
-                        <li class="login">
-                            <a><span>회원가입</span></a>
+                        <li class="Nav-listItem Nav-listItem--noMargin">
+                            <a class="Link Nav-listLink" href="#">
+                                <span class="Link-content">회원가입</span>
+                            </a>
+                        </li>
+                        <li class="Nav-listItem Nav-listItem--cart Nav-listItem--noBorder">
+                            <button class="Nav-cart" type="button">
+                                ::before
+                                ::after
+                            </button>
                         </li>
                     </ul>
                 </div> <!--end Nav-large-header-->
-                <a class="NacLogo">
+                <a class="NacLogo" href="https://www.aesop.com/kr/">
                         <svg>
                             <title>Aesop logo</title>
                         <g>
@@ -53,6 +90,41 @@
                 </a>
 
             </nav>
+            <div class="MCBody">
+                <div class="yCmsComponent span-24 section1 cms_disp-img_slot">
+                    <section class="MCSplitHero">
+                        <div class="MCHalfWidthFullBleeHero-weapper MCSplitHero__wrapper--light">
+                            <div class="MCSplitHero__contentWrapper">
+                                <h5 class="MCSplitHero-subtitle">대담하면서 섬세한</h5>
+                                <h1 class="MCSplitHero-title">로즈 오 드 퍼퓸</h1>
+                                <div class="MCSplitHero-details">
+                                    <p class="MCSplitHero-text">
+                                        "장미 향의 복잡한 진화를 보여주는 이솝의 네 번째 향수는 미묘하고 풍성한 플로럴 향이 단
+                                        연 돋보이며, 그린, 우드, 가벼운 스모키 노트가 받쳐줍니다.  "
+                                    </p>
+                                    <div class="MCSplitHero-ctaHolder">
+                                        <a class="Link Link--hasIcon MCBodyCopy-cta Link--isBtn Link--isBtnLight" href="#">
+                                            <span class="Link-content">
+                                                "로즈 구매하기"
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MCSplitHero-imgWrapper">
+                                <picture class="Picture MCSplitHero-backgroundImg">
+                                    <source id="mainPcImg">
+                                    <source id="mainTableImg">
+                                    <source id="mainMobileImg">
+                                </picture>
+
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
         </div>
     </div> <!--end class Aesop-->
 </body>
