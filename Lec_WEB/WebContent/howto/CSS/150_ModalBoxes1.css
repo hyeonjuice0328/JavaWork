@@ -1,3 +1,35 @@
 @charset "UTF-8";
 
-/* TODO */
+.modal {
+    width: 100%; /*윈도우 폭 전체 차지*/
+    height: 100%;
+    position: fixed; /* 이렇게 지정하면 hegith:100%가 윈도우 전체 차지로 지정됨*/
+    background-color: rgba(0,0,0, 0.4);
+    left: 0;
+    top: 0; /*이 순간 화면 와장창 전체 차지*/
+    z-index: 1; /*최상단에 보이게 하기 */
+    overflow: auto; /*안의 내용이 넘치면 스크롤바 생기기*/
+    display: none; /*기본값 : 안보이게 하기 */
+}
+
+.modal-content{
+    width: 80%;
+    background-color: #fefefe;
+    margin: 15% auto; /*top 에서 15% , auto : 좌우로 동일비율 띄우기*/
+    padding: 20px;
+    border: 2px solid #888;
+}
+
+.close{
+    font-size: 28px; /*아이콘 사이즈 키우기*/
+    font-weight: bold;  /*아이콘 두껍게*/
+    color: #aaa;
+    float: right;
+}
+
+.close:hover, .close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

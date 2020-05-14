@@ -17604,8 +17604,7 @@
   .MCBodyCopy-copyParagraph {
     line-height: 1.7;
   }
-  .MCBodyCopy-copyParagraph a {
-  }
+
   .MCBodyCopy-copyParagraph a,
       .MCBodyCopy-copyParagraph a:link {
     color: #4A4A4A;
@@ -17621,30 +17620,6 @@
   .MCBodyCopy-copyLink {
     font-family: 'Suisse Medium', sans-serif;
   }
-  html[lang='jp'] .MCBodyCopy-copyLink {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
-  .MCBodyCopy-eyebrow {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    font-family: 'Suisse Medium', sans-serif;
-    margin-bottom: 20px;
-  }
-  html[lang='jp'] .MCBodyCopy-eyebrow {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
-  .MCFullBleedHeader--hasEyebrow .MCBodyCopy-eyebrow {
-    margin-bottom: 16px;
-  }
-  .MCBodyCopy-address {
-    display: block;
-  }
-  .MCBodyCopy-addressLine {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: #666;
-    display: block;
-  }
   .MCBodyCopy-externalIcon {
     fill: #666;
     height: 8px;
@@ -17655,9 +17630,6 @@
     font-family: 'Suisse Medium', sans-serif;
     font-size: 1.6rem;
     margin-bottom: 20px;
-  }
-  html[lang='jp'] .MCBodyCopy-tertiaryTitle {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
   }
   .MCBodyCopy-quote {
     font-family: 'Zapf Humanist', serif;
@@ -17670,9 +17642,7 @@
     font-family: 'Suisse Medium', sans-serif;
     display: block;
   }
-  html[lang='jp'] .MCBodyCopy-externalLink {
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
-  }
+
   .MCCarouselNav {
     -ms-flex-align: center;
         align-items: center;
