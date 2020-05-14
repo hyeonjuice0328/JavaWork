@@ -7,8 +7,9 @@
     <title>이솝</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../myweb/Js.js"></script>
-    <link href="../myweb/CSS.css" rel="stylesheet" type="text/css">
     <link href="../myweb/MyCSS.css" rel="stylesheet" type="text/css">
+    <link href="../myweb/CSS.css" rel="stylesheet" type="text/css">
+    <!-- <link href="../myweb/css2.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body class="language-ko" style="margin-bottom: 516px !important;">
     <div class="Aesop">
@@ -30,11 +31,6 @@
         <div>
             <nav class="Nav">
                 <div class="Nav-large Nav-header">
-                    <div class="NavBarAlertBanner is-closed">
-                        <div class="NavBarAlertBanner-wrapper">
-                            <p class="NavBarAlertBanner-description"> 카트가 비어있습니다.</p>
-                        </div>
-                    </div>
                     <ul class="Nav-list Nav-list--inline Nav-list--mainNav">
                         <li class="Nav-listItem">
                             <a class="Link Nav-listLink" href="https://www.aesop.com/kr/shop/">
@@ -47,11 +43,11 @@
                             </a>
                         </li>
                         <li class="Nav-listItem">
-                            <a class="Link Nav-listLink">
+                            <a class="Link Nav-listLink" href="#">
                                 <span class="Link-content">스토어</span></a>
                         </li>
                         <li class="Nav-listItem">
-                            <a class="Link Nav-listLink">
+                            <a class="Link Nav-listLink" href="#">
                                 <span class="Link-content">검색</span></a>
                         </li>
                     </ul>
@@ -65,10 +61,6 @@
                             <a class="Link Nav-listLink" href="#">
                                 <span class="Link-content" id="join">가입</span>
                             </a>
-                        </li>
-                        <li class="Nav-listItem Nav-listItem--cart Nav-listItem--noBorder">
-                            <button class="Nav-cart" type="button">
-                            </button>
                         </li>
                     </ul>
                 </div> <!--end Nav-large-header-->
@@ -114,8 +106,7 @@
                                     <div aria-hidden="true" data-videosource data-videoscreensize="LARGE"></div>
                                 </div>
                                 <picture class="Picture MCSplitHero-backgroundImg">
-                                    <img src="image/Main_pc.jpg">
-                                  <img alt = "Rōzu Eau de Parfum on chair">
+                                    <!-- <img src="image/Main_pc.jpg"> -->
                                 </picture>
                             </div>
                             
@@ -142,11 +133,6 @@
                                         /r/rozu-inspiration-charlotte-perriand/" target="_self">
                                             <span class="Link-content">
                                                 "영감 보기"
-                                                <svg class="Icon Link-icon" viewBox="0 0 50 50">
-                                                    <g>
-                                                        <path d="M30.1,5.3L50,25.1L30.1,45h-6.6l18-17.6H0v-4.8h41.5l-18-17.6h6.6V5.3z"></path>
-                                                    </g>
-                                                </svg>
                                             </span>
                                         </a>
                                     </li>
@@ -155,7 +141,7 @@
                         </section>
                             <div>
                                 <picture class="subimg1">
-                                    <img src="image/Aesop-Rozu-Campaign-Homepage-Secondary-1-Mid-Desktop-1690x1100px.jpg">
+                                    <img src="image/Aesop-Rozu-Campaign-Homepage-Secondary-1-Mid-Mobile-600x390px.jpg">
                                 </picture>
                                 <div>
 
@@ -170,5 +156,46 @@
             </div>
         </div>
     </div> <!--end class Aesop-->
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="https://www.w3schools.com/action_page.php" method="post">
+          <div class="imgcontainer">
+              <!-- 닫기버튼  -->
+              <span class="close">&times;</span>
+          </div>
+        
+          <div class="container">
+            <!-- 로그인 form -->
+            <b class="text" id="hi"> 안녕하세요. </b>
+            <p class="text">유효한 이메일을 입력해주세요.</p><br>
+            <label for="uname"><b>Useremail</b></label><br>
+            <input type="email" placeholder="Enter Useremail.." name="email" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+    
+            <button class="text" type="submit"> 계   속 </button>
+        
+          </div>
+        </form>
+    </div>
+    <script>
+    var loginBtn = document.getElementById("login");
+    var modal = document.getElementById("id01");
+    var close = document.getElementsByClassName("close")[0];
+    
+    loginBtn.onclick = function(){
+        modal.style.display = "block";
+    }
+    
+    close.onclick = function(){
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event){
+        if(event.target == modal){
+            modal.style.display = "none";
+        }
+    }
+    </script>
 </body>
 </html>
