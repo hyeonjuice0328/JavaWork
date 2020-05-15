@@ -1,201 +1,291 @@
-<!-- welcome page : 기본페이지 메인페이지로 설정하기-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이솝</title>
+    <script src="https://kit.fontawesome.com/d5758ef086.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../myweb/Js.js"></script>
-    <link href="../myweb/MyCSS.css" rel="stylesheet" type="text/css">
-    <link href="../myweb/CSS.css" rel="stylesheet" type="text/css">
-    <!-- <link href="../myweb/css2.css" rel="stylesheet" type="text/css"> -->
+    <link href="../myweb/css.css" rel="stylesheet" type="text/css">
+    <title>Aesop</title>
 </head>
-<body class="language-ko" style="margin-bottom: 516px !important;">
-    <div class="Aesop">
-        <div class="AlertBanner">
-            <div class="AlertBanner-body is-showing is-animated">
-                <p>이솝 공식 홈페이지를 이용해 주셔서 감사합니다. 주문 폭주 및 배송사의 사정으로 배송 
-                    지연이 발생 될 수 있는 점 참고 부탁 드립니다.</p>
-            </div>
-        </div>
-        <div class="ShippingBanner">
-            <div class="ShippingBanner-body is-showing is-animated" data-banner-id="kr=shipping-banner-and-modal">
-                <div class="BannerContent BannerContent--expandable">
-                    <button class="ShippingBanner-openModalBtn" type="button">
-                        <p class="ShippingBaner-content">전 제품 무료 배송 혜택을 즐겨보세요.</p>
-                    </button>
+<body>
+    <header class="header">
+        <div class="main1">
+            <div class="alertbanner">
+                <div class="alertbanner-body">
+                    <p>이솝 공식 홈페이지를 이용해 주셔서 감사합니다. 주문 폭주 및 배송사의 사정으로 배송 
+                        지연이 발생 될 수 있는 점 참고 부탁 드립니다.</p>
                 </div>
             </div>
-        </div>
-        <div>
-            <nav class="Nav">
-                <div class="Nav-large Nav-header">
-                    <ul class="Nav-list Nav-list--inline Nav-list--mainNav">
-                        <li class="Nav-listItem">
-                            <a class="Link Nav-listLink" href="https://www.aesop.com/kr/shop/">
-                                <span class="Link-content">제품보기</span>
+            <div class="shippingbanner">
+                <div class="shippingbanner-body">
+                    <a href="#"><p>전 제품 무료 배송 혜택을 즐겨보세요.</p></a>
+                </div>
+            </div>
+            <div class="cartgbanner">
+                <div class="cartbanner-body">
+                    <p>카트가 비어 있습니다.</p>
+                </div>
+            </div>
+            <div class="Nav">
+                <div class="Nav-header">
+                    <ul class="Nav-list1">
+                        <li class="Nav-li">
+                            <a class="Link-Nav1" href="#">
+                                <span>제품보기</span>
                             </a>
                         </li>
-                        <li class="Nav-listItem" >
-                            <a class="Link Nav-listLink" href="https://www.aesop.com/kr/read/">
-                                <span class="Link-content">읽기</span>
+                        <li class="Nav-li">
+                            <a class="Link-Nav1" href="#">
+                                <span>읽기</span>
                             </a>
                         </li>
-                        <li class="Nav-listItem">
-                            <a class="Link Nav-listLink" href="#">
-                                <span class="Link-content">스토어</span></a>
+                        <li class="Nav-li">
+                            <a class="Link-Nav1" href="#">
+                                <span>스토어</span>
+                            </a>
                         </li>
-                        <li class="Nav-listItem">
-                            <a class="Link Nav-listLink" href="#">
-                                <span class="Link-content">검색</span></a>
-                        </li>
+                        <li class="Nav-li">
+                            <a class="Link-Nav1" href="#">
+                                <span>검색</span>
+                            </a> 
+                        </li>   
                     </ul>
-                    <ul class="Nav-list Nav-list-loginAndCart Nav-list--inline">
-                        <li class="Nav-listItem Nav-listItem--noMargin">
-                            <a class="Link Nav-listLink" href="#">
-                                <span class="Link-content" id="login">로그인</span>
+                    <ul class="Nav-list2">
+                        <li class="Nav-li2">
+                            <a class="Link-Nav2" href="#">
+                                <span class="list2" id="login">로그인</span>
                             </a>
                         </li>
-                        <li class="Nav-listItem Nav-listItem--noMargin">
-                            <a class="Link Nav-listLink" href="#">
-                                <span class="Link-content" id="join">가입</span>
+                        <li class="Nav-li2">
+                            <a class="Link-Nav2" href="#">
+                                <span class="list2" id="join">가입</span>
                             </a>
                         </li>
+                        <li class="Nav-li2">
+                            <a class="Link-Nav2" href="#" id="alert-cart">
+                                <!-- <i class="fal fa-shopping-cart"></i> -->
+                                <span class="list2" id="cart">카트</span>
+                            </a>
+                        </li>
+   
                     </ul>
-                </div> <!--end Nav-large-header-->
-                <a class="NavLogo" href="#">
-                        <svg>
-                            <title id="2431468a-9f9c-4967-bf2b-123acc13d253">Aesop logo</title>
-                        <g>
-                            <path class="NavLogo-icon--path" d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z"></path>
-                            <path class="NavLogo-icon--path" d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z"></path>
-                            <path class="NavLogo-icon--path" d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z"></path>
-                            <path class="NavLogo-icon--path" d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73"></path>
-                            <path class="NavLogo-icon--path" d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7"></path>
-                            <rect x="131.8" y="13.5" class="NavLogo-icon--path" width="44.3" height="5"></rect>
-                            <path class="NavLogo-icon--path" d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9"></path>
-                        </g>
-                    </svg>
-                </a>
-
-            </nav>
-            <div class="MCBody">
-                <div class="yCmsComponent span-24 section1 cms_disp-img_slot">
-                    <section class="MCSplitHero">
-                        <div class="MCHalfWidthFullBleeHero-weapper MCSplitHero__wrapper--light">
-                            <div class="MCSplitHero__contentWrapper">
-                                <h5 class="MCSplitHero-subtitle">대담하면서 섬세한</h5>
-                                <h1 class="MCSplitHero-title">로즈 오 드 퍼퓸</h1>
-                                <div class="MCSplitHero-details">
-                                    <p class="MCSplitHero-text">
-                                        "장미 향의 복잡한 진화를 보여주는 이솝의 네 번째 향수는 미묘하고 풍성한 플로럴 향이 단
-                                        연 돋보이며, 그린, 우드, 가벼운 스모키 노트가 받쳐줍니다.  "
+                </div>
+            </div>
+            <div class="main-container">
+                <div class="mainphoto">
+                    <div>
+                        <a class="NavLogo" href="#">
+                            <img src="image/logo.PNG">
+                        </a>
+                        <section class="Main_subs">
+                            <div class="Main_subs_contentWrapper">
+                                <h5 class="Main_subs_subtitle">대담하면서 섬세한</h5>
+                                <h1 class="Main_subs_title">로즈 오 드 퍼퓸</h1>
+                                <div class="Main_subs_details">
+                                    <p class="Main_subs_text">
+                                        장미 향의 복잡한 진화를 보여주는 이솝의 네 번째 향수는 미묘<br>
+                                        하고 풍성한 플로럴 향이 단연 돋보이며, 그린, 우드, 가벼운 스<br>
+                                        모키 노트가 받쳐줍니다.
                                     </p>
-                                    <div class="MCSplitHero-ctaHolder">
-                                        <a class="Link Link--hasIcon MCBodyCopy-cta Link--isBtn Link--isBtnLight" href="#">
+                                    <div class="Main_subs_Holder">
+                                        <a class="Main_subs_LinkBtn" href="https://www.aesop.com/kr/p/fragrance/rozu/r-zu-eau-de-parfum/?cta=purchase-homepage">
                                             <span class="Link-content">
-                                                "로즈 구매하기"
+                                                로즈 구매하기
                                             </span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="MCSplitHero-imgWrapper">
-                                <div id="MCSplitHero__videoWeapper" class="MCSplitHero__videoWrapper">
-                                    <div aria-hidden="true" data-videosource data-videoscreensize="LARGE"></div>
-                                </div>
-                                <picture class="Picture MCSplitHero-backgroundImg">
-                                    <!-- <img src="image/Main_pc.jpg"> -->
-                                </picture>
-                            </div>
-                            
-                            </div>
-                        </div>
-                    </section>
-                </div>
-               <div class="yCmsComponent span-24 section1 cms_disp-img_slot">
-                    <div class="MCRow is-visible">
-                        <section class="MCLeftCopy">
-                            <div class="MCLeftCopy-wrapper">
-                                <h5 class="MCLeftCopy-eyebrow">진취적이면서 미묘한</h5>
-                                <h2 class="MCLeftCopy-title">샬로트 페리앙</h2>
-                                <div class="MCLeftCopy-copy">
-                                    <p class="MCLeftCopy-copyParagraph">
-                                        "로즈 탄생의 영감이 되어준 샬로트 페리앙은 지적 설계를 통해 다른 이들의 생활
-                                        을 향상시키기 위해 노력했습니다. 로즈는 모든 면에서 그녀의 뛰어난 삶과 일과의 
-                                        연계를 후각적으로 표현합니다. "
-                                    </p>
-                                </div>
-                                <ul class="MCLinkList">
-                                    <li class="MCLinkList-linkItem">
-                                        <a class="Link Link--isBtn MCLinkList-link Link--hasIcon" href="/kr
-                                        /r/rozu-inspiration-charlotte-perriand/" target="_self">
-                                            <span class="Link-content">
-                                                "영감 보기"
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                            <div>
-                                <picture class="subimg1">
-                                    <img src="image/Aesop-Rozu-Campaign-Homepage-Secondary-1-Mid-Mobile-600x390px.jpg">
-                                </picture>
-                                <div>
-
-                                </div>
-                            </div>
-                            <div>
-                                <p>© Adagp, Paris, 2020 ; © Archives Charlotte Perriand</p>
-                            </div>
                         </section>
                     </div>
-               </div>
+                </div>
             </div>
         </div>
-    </div> <!--end class Aesop-->
-    <div id="id01" class="modal">
-        <form class="modal-content animate" action="https://www.w3schools.com/action_page.php" method="post">
-          <div class="imgcontainer">
-              <!-- 닫기버튼  -->
-              <span class="close">&times;</span>
-          </div>
+    </header>
+    <div class="clear"></div>
+
+
+    <article class="article">
+        <div class="yCmsComponent1">
+            <div class="main-store1">
+                <section class="main-storecopy1">
+                    <div class="main-store-wrapper1">
+                        <h5 class="main-store-subtitle1">감사의 인사</h5>
+                        <h2 class="main-store-title1">부모님과 선생님께 전하는 감사의 마음</h2>
+                        <div class="main-store-copy1">
+                            <p class="main-store-copyparagraph1">따뜻한 조언과 지도로 나아갈 길에
+                                대한 영감을 주신 분들에게 어울리는 기프트 셀렉션
+                            </p>
+                        </div>
+                        <div class="main_store_Holder1">
+                            <a class="main_store_LinkBtn1" href="https://www.aesop.com/kr/c/gift-guide/parents-teachers-day-20/">
+                                <span class="Link-content1">
+                                    기프트 보기
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main-storeimage-wrapper1">
+                        <div class="main-storeimage1">
+                            <img class="main-store-image1">
+                        </div>
+                    </div> 
+                </section>       
+            </div>
+        </div>
+        <div class="yCmsComponent">
+            <div class="main-store">
+                <section class="main-storecopy">
+                    <div class="main-store-wrapper">
+                        <h5 class="main-store-subtitle">방문</h5>
+                        <h2 class="main-store-title">신규 스토어: 이솝 롯데 수지</h2>
+                        <div class="main-store-copy">
+                            <p class="main-store-copyparagraph">최근에 오픈한 이솝 스토어에
+                                서 소중한 사람을 위한 시즈널 기프트를 만나보세요.
+                            </p>
+                        </div>
+                        <div class="main_store_Holder">
+                            <a class="main_store_LinkBtn" href="https://www.aesop.com/kr/r/aesop-lotte-suji">
+                                <span class="Link-content">
+                                    스토어 구경하기
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main-storeimage-wrapper">
+                        <div class="main-storeimage">
+                            <img class="main-store-image">
+                        </div>
+                        <div class="main-storeimage-captionwrapper">
+                            <p class="main-storeimage-caption">이솝 롯데 수지</p>
+                        </div>
+                    </div> 
+                </section>       
+            </div>
+        </div>
         
-          <div class="container">
-            <!-- 로그인 form -->
-            <b class="text" id="hi"> 안녕하세요. </b>
-            <p class="text">유효한 이메일을 입력해주세요.</p><br>
-            <label for="uname"><b>Useremail</b></label><br>
-            <input type="email" placeholder="Enter Useremail.." name="email" required>
-            <br>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+    </article>
     
-            <button class="text" type="submit"> 계   속 </button>
-        
-          </div>
-        </form>
+    <div class="clear"></div>
+
+    <article2 class="article2"></article2>
+        <div class="maint">
+            <div class="maint-wrapper">
+                <div class="maint-paragraphswrapper">
+                    <p class="maint-paragraph">‘Life is as full of paradoxes as roses are of thorns.’</p>
+                </div>
+                <div class="maint-author">Fernando Pessoa</div>
+            </div>
+        </div>
+    </article2>    
+    
+
+    <div class="clear"></div>
+
+    <hr class="footer-hr">
+
+    <footer>
+        <div class="footer">
+            <form class="footernewsletter">
+                <div class="footernewsletter-wrapper">
+                    <h5 class="footernewsletter-title">Subscribe</h5>
+                    <div class="footernewsletter-inputwrapper">
+                        <label>
+                            <span class="formtext-label">Email Address</span><br>
+                            <input type="email" class="formtext-input" name="email" placeholder="enter user email..">
+                        </label>
+                    </div>
+                    <br><br>
+                    <div class="footernewsletter-inputwrapper">
+                        <span class="footernewsletter-text">
+                            I would like to receive an Aesop newsletter with<br>
+                            products, stores, events, 
+                            and articles chosen by Aesop.
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="footerLinks">
+                <div class="footerLinks-wrapper">
+                    <ul class="footerLinks-columlist">
+                        <li class="footerLinks-colimlistitem">
+                            <h5 class="footerLinks-columtitme">Oders & Support</h5>
+                            <ul class="footerLinks-linksList">
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Contact up</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">FAQS</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Delivery and Returns</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Track your order</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Check gifts card balance</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Terms and conditions</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footerLinks-colimlistitem" id="about">
+                            <h5 class="footerLinks-columtitme">About</h5>
+                            <ul class="footerLinks-linksList">
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Our Stroy</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Careers</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Foundation</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Press</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Corperate gifts</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">whistleblower policy</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footerLinks-colimlistitem" id="Social">
+                            <h5 class="footerLinks-columtitme">Social Media</h5>
+                            <ul class="footerLinks-linksList">
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Instagram</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Twitter</a>
+                                </li>
+                                <li class="footerLinks-linkslistitem">
+                                    <a class="footerLinks-linkname" href="#">Linkedin</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                        <div class="footercompliance-wrapper">
+                            상호: 이솝코리아 유한회사<br> 
+                            주소: 서울특별시 강남구 선릉로 162길 3 <br>
+                            대표자: 마이클안토니오키프 <br>
+                            대표전화: 1800-1987<br>
+                            사업자 등록 번호: 220-88-56014 <br>
+                        </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <script>
-    var loginBtn = document.getElementById("login");
-    var modal = document.getElementById("id01");
-    var close = document.getElementsByClassName("close")[0];
-    
-    loginBtn.onclick = function(){
-        modal.style.display = "block";
-    }
-    
-    close.onclick = function(){
-        modal.style.display = "none";
-    }
-    
-    window.onclick = function(event){
-        if(event.target == modal){
-            modal.style.display = "none";
-        }
-    }
-    </script>
+    <div class="final-footer">
+        <span class="c-aesop"><a>© 이솝</a></span>
+        <span class="korea"><a>대한민국</a></span>
+    </div>
+
 </body>
 </html>

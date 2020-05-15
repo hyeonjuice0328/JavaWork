@@ -22,15 +22,15 @@ th,td {
 
 			GET 방식 / POST 방식 둘다 지원함
 	
-			var api_key = "devU01TX0FVVEgyMDIwMDUxMjE3MDc1MjEwOTc1MDY=";
-		-->
+	var api_key = "devU01TX0FVVEgyMDIwMDUxMjE2NTIwODEwOTc1MDE=";
+-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <body>
 <h3>$.ajax()+post : 도로명 주소</h3>
 <form name="form" id="form" method="post">
 	현재페이지: <input type="number" name="currentPage" value="1"/><br> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 	페이지당출력개수: <input type="number" name="countPerPage" value="10"/><br><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
-	승인키: <input type="text" name="confmKey" value="devU01TX0FVVEgyMDE5MTIwMzIzNDY0NzEwOTI3NTE="/><br><!-- 요청 변수 설정 (승인키) -->
+	승인키: <input type="text" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE2NTIwODEwOTc1MDE="/><br><!-- 요청 변수 설정 (승인키) -->
 	검색어: <input type="text" name="keyword" value="테헤란로" onkeydown="enterSearch();"/><br><br><!-- 요청 변수 설정 (키워드) -->
 	<input type="button" onClick="getAddr();" value="검색하기"/>
 </form><br>
@@ -54,21 +54,25 @@ function getAddr(){
 	}
 	
 	$.ajax({
-		url :"http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"  //인터넷망
-		, type : "POST"
-		, data : {//post방식에 필요한 parameter
-			currentPage : $('#form').find('[name="currentPage"]').val()
-			, countPerPage : $('#form').find('[name="countPerPage"]').val()
-			, confmKey : $('#form').find('[name="confmKey"]').val()
-			, keyword : $('#form').find('[name="keyword"]').val()
-		}
-		, dataType: "jsonp" 	// cross-domain 문제 (JSON with Padding)
-		, crossDomain : true // 도메인 허용
+		url : "http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"  //인터넷망
+		, type : "post"
+		, data : $("#form").serialize()  // form 의 데이터를 한번에 object 화 하기
+
+		// , data : {  // post request 에 필요한 parameter
+		// 	currentPage : $("#form").find('[name="currentPage"]').val()
+		// 	, countPerPage : $("#form").find('[name="countPerPage"]').val()
+		// 	, confmKey : $("#form").find('[name="confmKey"]').val()
+		// 	, keyword : $("#form").find('[name="keyword"]').val()
+		// }
+		, dataType: "jsonp"   
+		, crossDomain: true // cross-domain 문제 (JSON with Padding)
 
 		, success : function(xmlStr){
-			$('#list').html("");
+
+			$("#list").html("");
 			makeList(xmlStr.returnXml);
 		}
+		
 	});
 }
 
