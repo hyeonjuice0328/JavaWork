@@ -9,53 +9,103 @@
 <link href="../myweb/join_form.css" rel="stylesheet" type="text/css">
 <title>Sing Up | Aesop</title>
 </head>
-<body>
+<body >
 	<nav>
-		<ul>
-			<li class="logowrapper">
+		<label class="">
+			<div class="logowrapper">
 				<a class="logo" href="#">
-					Aesop Icon
+					<img src="image/logo.PNG">
 				</a>
-			</li>
-		</ul>
+			</div>
+		</label>
 	</nav>
+	<hr>
 	<div class="main-container">
 		<div class="sign-in">
 			<div class="subscr">
-				<h3 class="main-title">Sign Up for an Account</h3>
-				<div class="main-title-body">By creating an accountm, you will be 
-					able to manage your subscriptions
+				<div class="">
+					<h3 class="main-title">Sign Up for an Account</h3>
 				</div>
-				<div class="input-info">
+				<div class="">
+					<div class="main-title-body">By creating an accountm, you will be 
+						able to manage your subscriptions
+					</div>
+				</div>
+				<div class="container">
 					<form name="joinform" action="https://www.w3schools.com/action_page.php" method="get"
 						onsubmit="return chkSubmit()">
-						First Name<span class="important"> *</span><br>
-						<input type="text" name="firstname" required>   
-						<br><br>
-						Last Name<span class="important"> *</span><br>
-						<input type="text" name="lastname" required>   
-						<br><br>
-						Email Adrress<span class="important"> *</span><br>
-						<input type="text" name="email" required>   
-						<br><br>
-						Password<span class="important"> *</span><br>
-						<input type="text" name="psw" required>   
-						<br><br>
-						Confirm Password<span class="important"> *</span><br>
-						<input type="text" name="confirmpsw" required>   
-						<br><br>
-						What is your skin type?<br>
-						<select name="skintype">
-							<option value="empty" selected></option>
-							<option value="dskin">Dry Skin</option>
-							<option value="okin">Oily skin</option>
-							<option value="cskin">Combination skin</option>
-							<option value="idk">I don't know..</option>
-						  </select> 
-						<br><br>
-						<input id="btn" type="submit" value="SIGN UP"><br>
-						<span id="already">Already have aan accout?</span>
-						<span id="signin">Sign In</span>
+
+						<div class="row">
+							<div class="col-4">
+								<label for="name">First Name</label><span class="important"> *</span>
+							</div>
+							<div class="col-8">	
+								<input type="text" name="firstname" required>  
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-4">
+								<label for="lname">Last Name</label><span class="important"> *</span>
+							</div>
+							<div class="col-8">	
+								<input type="text" name="lastname" required>
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-4">
+								<label for="email">Email Adrress</label><span class="important"> *</span>
+							</div>
+							<div class="col-8">	
+								<input type="text" name="email" required>
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-4">	
+								<label for="psw">Password</label><span class="important"> *</span>
+							</div>
+							<div class="col-8">
+								<input type="text" name="psw" required>
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-4">
+								<label for="cpsw">Confirm Password</label><span class="important"> *</span>
+							</div>
+							<div class="col-8">
+								<input type="text" name="confirmpsw" required>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-4">
+								<label for="skintype">What is your skin type?</label>
+							</div>
+							<div class="col-8">
+								<select name="skintype">
+									<option value="empty" selected></option>
+									<option value="dskin">Dry Skin</option>
+									<option value="okin">Oily skin</option>
+									<option value="cskin">Combination skin</option>
+									<option value="idk">I don't know..</option>
+								</select> 
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-3" id="btn">
+								<input id="btn" type="submit" value="SIGN UP">
+							</div>
+						</div>	
+						<div class="row">
+							<div class="col-12" id="signin">	
+								<span id="already">Already have an account?</span>
+								<a class="singin" href="#">Sign In</a>
+							</div>
+						</div>	
 					</form>
 				</div>
 			</div>
