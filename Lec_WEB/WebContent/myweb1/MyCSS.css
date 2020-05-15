@@ -1,0 +1,579 @@
+@charset "UTF-8";
+html {font-size: 0.625em;
+    font-family: 'Suisse Regular', sans-serif;}
+body {
+    font-family: 'Suisse Regular', sans-serif;
+    font-size: 1.6rem;
+    }
+h1,h2,h3,h4,h5,h6,
+p {
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: inherit;
+  }
+  html {
+    box-sizing: border-box;
+    color: #333;
+    height: 100%;
+  }
+  body {
+    background-color: #252525;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    transition: margin-top 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .Aesop {
+    background-color: #FFFEF2;
+    min-height: 100%;
+  }
+  .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important; /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important; /* 3 */
+    width: 1px !important;
+  }
+
+  /*banner*/
+  .AlertBanner-body {
+    padding: 0 34px;
+  }
+  .NavBarAlertBanner {
+    padding: 20px 34px;
+  }
+  .AlertBanner-body {
+    padding: 0 40px;
+  }
+  .AlertBanner p {
+    text-align: center;
+  }
+  .NavBarAlertBanner {
+    padding: 20px 40px;
+  }
+  .AlertBanner {
+    position: relative;
+    z-index: 500;
+  }
+  .AlertBanner-body {
+    background-color: #A6672B;
+    clear: both;
+    color: #FFFEF2;
+    height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    top: 0;
+    width: 100%;
+    z-index: 10
+  }
+  .AlertBanner-body.is-showing {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  .AlertBanner p {
+    font-family: 'Suisse Medium', sans-serif;
+    font-family: 'Suisse Regular', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .NavBarAlertBanner {
+    background-color: #252525;
+    color: #FFFEF2;
+    cursor: pointer;
+    left: 0;
+    opacity: 1;
+    padding: 20px 20px;
+    position: absolute;
+    top: 0;
+    transform: none;
+    transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    z-index: 500;
+  }
+  .is-fixed-hidden .NavBarAlertBanner,
+  .is-fixed-visible .NavBarAlertBanner {
+  position: fixed;
+}
+.NavBarAlertBanner-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+}
+.NavBarAlertBanner-description {
+  font-family: 'Suisse Medium', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+
+
+  .ShippingBanner-body {
+    padding: 0 40px;
+  }
+  .ShippingBanner-content {
+    text-align: center;
+  }
+  .ShippingBanner-openModalBtn {
+    width: auto;
+  }
+  .ShippingBanner-openModalBtn:hover {
+    border-bottom: 1px solid #FFF;
+  }
+  .ShippingBanner {
+    position: relative;
+    z-index: 500;
+  }
+  .ShippingBanner-body {
+    /* transition: transform 4700ms var(--ease-out-cubic); */
+    background-color: #252525;
+    clear: both;
+    color: #FFFEF2;
+    height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  .ShippingBanner-body .BannerContent {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  .ShippingBanner-body.is-showing {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 8px;
+    padding-top: 12px;
+  }
+  .ShippingBanner-content {
+    font-family: 'Suisse Medium', sans-serif;
+    -ms-flex-positive: 2;
+        flex-grow: 2;
+    font-family: 'Suisse Regular', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .ShippingBanner-openModalBtn {
+    -ms-flex-align: center;
+        align-items: center;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    transition: border 500ms ease;
+    width: 100%
+  }
+
+  .ShippingBanner-openModalBtn:hover .ShippingBanner-openModalIcon {
+    fill: #FFF;
+  }
+  .ShippingBanner-body {
+    padding: 0 34px;
+  }
+  .ShippingBanner-body {
+    padding: 0 40px;
+  }
+  .ShippingBanner-body .BannerContent--expandable {
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .ShippingBanner-content {
+    text-align: center;
+  }
+  .ShippingBanner-openModalBtn {
+    width: auto;
+  }
+  .ShippingBanner-openModalBtn:hover {
+    border-bottom: 1px solid #FFF;
+  }
+  .ShippingBanner {
+    position: relative;
+    z-index: 500;
+  }
+  .ShippingBanner-opem {
+    /* transition: transform 4700ms var(--ease-out-cubic); */
+    background-color: #252525;
+    clear: both;
+    color: #FFFEF2;
+    height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  .ShippingBanner-body .BannerContent {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  .ShippingBanner-body.is-showing {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 8px;
+    padding-top: 12px;
+  }
+  .ShippingBanner-content {
+    font-family: 'Suisse Medium', sans-serif;
+    -ms-flex-positive: 2;
+        flex-grow: 2;
+    font-family: 'Suisse Regular', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  
+
+  body.has-noScrolling {
+    overflow: hidden
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a #login{
+    color:black;
+    text-decoration: none;
+  }
+  a #join{
+    color:black;
+    text-decoration: none;
+  }
+
+  .Nav ul{
+    display: flex;
+    list-style: none;
+    padding-left: 5px;
+  }
+  .Nav ul li {
+    padding : 12px 15px;
+  }
+  header div nav ul li a {
+    display: block;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding: 0;
+  }
+  li {text-align: -webkit-match-parent;}
+.is-fixed .NavLogo {
+  opacity: 1;
+  transition: opacity 300ms 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  visibility: visible;
+}
+.Nav-header {
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  color: #333;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80px;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  overflow: hidden;
+  padding-top: 5px;
+  position: relative;
+  transition: background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1),
+    border 300ms cubic-bezier(0.645, 0.045, 0.355, 1), color 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  z-index: 1200;
+}
+  .Btn {
+    border: 1px solid rgba(51, 51, 51, .2);
+    height: 60px;
+    min-width: 210px;
+    padding: 21px 23px;
+    position: relative;
+    transition: all 500ms ease;
+  }
+  body.has-tabbed .Btn:not(.is-disabled):focus,
+  body:not(.has-touch) .Btn:not(.is-disabled):hover {
+  background-color: #333;
+}
+.Btn .LoadingIndicator {
+    left: calc(50% - 15px);
+    right: auto;
+  }
+  .Btn:active {
+    background-color: #000;
+  }
+  .Btn.is-disabled {
+    background-color: #FFFEF2;
+    border-color: #D5D5CC;
+    cursor: default;
+  }
+  .Btn.is-action {
+    pointer-events: none;
+  }
+  .Btn.Btn--filled {
+    background-color: #333;
+  }
+.MCSplitHero{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+box-sizing: inherit;
+display: flex;
+margin-top: -155px;
+margin-bottom: -50px;
+min-height: 65vh;
+background-color: #643E43;
+}
+
+.MCSplitHero-backgroundImg {
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+color: #FFFEF2;
+text-align: center;
+box-sizing: inherit;
+}
+
+div.MCSplitHero-imgWrapper {
+background-image: url(image/Main_pc.jpg);
+z-index: 100;
+min-width: 1025px;
+width: auto;
+height: auto;
+position: absolute;
+/*최초의 시작 위치*/
+/* left: -30px;
+bottom: -70px; */
+}
+
+.MCCarouselNav MCCarouselNav--prev{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+box-sizing: inherit;
+align-items: center;
+background-color: rgba(0, 0, 0, .001);
+height: 100%;
+overflow: hidden;
+position: absolute;
+z-index: 100;
+justify-content: flex-start;
+left: 0;
+width: 150px;
+display: none;
+}
+
+.flickity-viewport{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+box-sizing: inherit;
+position: relative;
+overflow: visible;
+cursor: grab;
+height: 511px;
+touch-action: pan-y;
+}
+.flickity-slider{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+cursor: grab;
+box-sizing: inherit;
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0px;
+transform: translateX(-75%);
+}
+
+.MCItemCarousel-Item{
+color: #333;
+font-family: 'Suisse Regular', sans-serif;
+font-size: 1.6rem;
+-webkit-font-smoothing: antialiased;
+-webkit-tap-highlight-color: transparent;
+user-select: none;
+cursor: grab;
+box-sizing: inherit;
+bottom: 0;
+max-width: 450px;
+width: 35%;
+-webkit-user-drag: none;
+position: absolute;
+left: 0%;
+}
+
+
+/*modal*/
+@charset "UTF-8";
+body {font-family: Arial, Helvetica, sans-serif;} /* 페이지 기본 글꼴 */
+form {border: 3px solid #f1f1f1;} /* 폼 테두리 */
+
+/* Model */
+.modal {
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(187, 197, 163, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    overflow: auto;
+    padding-top: 60px;
+    display: none;  /* 처음에는 팝업 안보이게 하기 */
+}
+
+.modal-content {  /* 모달 팝업 안의 form */
+    border-radius: 10px;
+    background-color: #e2d482;
+    width: 50%;
+    height: 40%;
+    margin: 5px auto;
+    border: 1px solid #888;
+}
+
+.imgcontainer {
+    text-align: center;  /* 이미지 중앙 정렬 */
+    margin: 24px 0 12px 0;  /* 바깥 여백 */
+    position: relative;
+}
+
+.close { /* 닫기 버튼 (x) */
+    font-size: 35px;
+    font-weight: bold;
+    color: rgba(82, 72, 72, 0.863);
+    /* position 설정하여 우상단으로 배치 */
+    position: absolute;
+    right: 25px;
+    top: 0;
+}
+
+.text{
+  font-family: 'Suisse Regular', sans-serif;
+  font-size: 1.6rem;
+  
+}
+#hi{
+  font-size: 25px;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+img.avatar {
+    width: 40%;  /* 원래 이미지 크기의 40% */
+    border-radius: 50%;  /* 이미지 둥글게 */
+}
+
+/* --------------------------------------- */
+/* form */
+
+.container {
+    padding: 16px;
+}
+
+input[type=email], input[type=password] {
+    width: 100%;
+    padding : 12px 20px;
+    margin : 1% auto;
+    border : 1px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;  /* border 등 size가 width 안으로 들어옴 */
+}
+
+button { /* 버튼 기본 스타일 */
+    width: 100%;
+    background-color: rgba(44, 46, 44, 0.7);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:black;
+}
+
+
+
+span.psw {
+    float: 0; 
+    padding-top: 16px;
+}
+
+/* 380 px  이하 화면에서 RWD */
+@media screen and (max-width: 380px){
+    .cancelbtn {
+        width: 100%;
+    }
+    span.psw {
+        float: none;
+        display: block;
+    }
+}
+
+/* 애니메이션 zoom 효과 */
+
+.animate {
+    animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.sumimg1{
+  float: right;
+  margin: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
