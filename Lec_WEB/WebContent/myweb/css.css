@@ -2,7 +2,7 @@
 * {
     box-sizing: inherit;
   }
-html {font-size: 0.625em}
+html {font-size: 0.625em} 
 html[lang='ko'] {
   font-family: 'Suisse Regular', sans-serif;
 }
@@ -37,7 +37,7 @@ font-weight: normal;
 /*alertbanner*/
 .alertbanner{
     position: relative;
-    z-index: ;
+    z-index: 3;
 }  
 .alertbanner-body{
 background-color: #A6672B;
@@ -62,7 +62,7 @@ text-align: center;
 /*shippingbanner*/
 .shippingbanner{
     position: relative;
-    z-index: ;
+    z-index: 2;
 }
 .shippingbanner-body{
     background-color: #252525;
