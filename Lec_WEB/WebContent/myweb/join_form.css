@@ -3,6 +3,7 @@
    background-color: rgba(255, 254, 231, 0.7);
    font-family: 'Suisse Medium', sans-serif;
     color:#333; }
+
 .label{
     display: inline-block;
 }
@@ -32,7 +33,7 @@ h3 {
     text-align: center;
     padding-left:20px;
 }
-input[type=text], select{
+input[type=text], input[type=password], select{
     width: 100%;
     margin-top: 8px;
     padding: 12px;
@@ -63,6 +64,10 @@ option{
     clear: both;
 }
 
+#hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
 
 /*기본 스타일 : mobile first*/
 [class*="col-"]{

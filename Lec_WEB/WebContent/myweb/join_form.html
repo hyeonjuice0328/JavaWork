@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/d5758ef086.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- <script src="../myweb copy/Js.js"></script> -->
+<script src="../myweb/join_form.js" type="text/javascript"></script>
 <link href="../myweb/join_form.css" rel="stylesheet" type="text/css">
 <title>Sing Up | Aesop</title>
 </head>
@@ -58,7 +58,7 @@
 								<label for="email">Email Adrress</label><span class="important"> *</span>
 							</div>
 							<div class="col-8">	
-								<input type="text" name="email" required>
+								<input type="text" name="email" required><span id="emailwarn" class="important"></span>
 							</div>
 						</div>	
 
@@ -67,7 +67,7 @@
 								<label for="psw">Password</label><span class="important"> *</span>
 							</div>
 							<div class="col-8">
-								<input type="text" name="psw" required>
+								<input type="password" name="psw" required>
 							</div>
 						</div>	
 
@@ -76,7 +76,7 @@
 								<label for="cpsw">Confirm Password</label><span class="important"> *</span>
 							</div>
 							<div class="col-8">
-								<input type="text" name="confirmpsw" required>
+								<input type="password" name="confirmpsw" required>
 							</div>
 						</div>
 
@@ -103,7 +103,8 @@
 						<div class="row">
 							<div class="col-12" id="signin">	
 								<span id="already">Already have an account?</span>
-								<a class="singin" href="#">Sign In</a>
+								<a class="singin" onClick="location.href='login_form_modal.html'">
+									<span id="hover">Sign In</span></a>
 							</div>
 						</div>	
 					</form>
@@ -111,16 +112,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
 
