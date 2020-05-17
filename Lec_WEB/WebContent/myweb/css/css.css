@@ -621,8 +621,8 @@ a:hover{text-decoration: underline;}
  div.mainphoto {
      margin:0;
      background-color:#643E43;
-     background-image: url("image/Main_pc.jpg");
-     background-size: 50% ;
+     background-image: url("../image/Main_pc.jpg");
+     background-size: 45% 100% ;
      background-position: right top;
      background-repeat: no-repeat;
  }
@@ -800,7 +800,7 @@ h1{
     width: 1000px;
     height: 570px;
     background-size: 100%;
-    background-image: url(image/main3.jpg);
+    background-image: url("../image/main3.jpg");
 }
 .main-storeimage-captionwrapper1{
     margin-bottom: 0;
@@ -917,7 +917,7 @@ h1{
     width: 1000px;
     height: 570px;
     background-size: 100%;
-    background-image: url(image/main-store.jpg);
+    background-image: url("../image/main-store.jpg");
 }
 
 .main-storeimage-captionwrapper{
