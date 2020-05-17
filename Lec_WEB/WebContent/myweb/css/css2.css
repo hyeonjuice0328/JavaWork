@@ -621,7 +621,7 @@ a:hover{text-decoration: underline;}
  div.mainphoto {
      margin-top:200px;
      background-color:rgb(255, 254, 231);
-     background-image: url("image/sudimage.jpg");
+     background-image: url("../image/sudimage.jpg");
      background-size: 100% ;
      /* background-position: right top; */
      background-repeat: no-repeat;
