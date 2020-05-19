@@ -159,7 +159,7 @@
 	<Context docBase="JSP04_ServletLifeCycle" path="/JSP04_ServletLifeCycle" reloadable="true" source="org.eclipse.jst.jee.server:JSP04_ServletLifeCycle"/>
 	<Context docBase="JSP05_ServletForm" path="/JSP05_ServletForm" reloadable="true" source="org.eclipse.jst.jee.server:JSP05_ServletForm"/>
 	<Context docBase="JSP06_ServletInitParam" path="/JSP06_ServletInitParam" reloadable="true" source="org.eclipse.jst.jee.server:JSP06_ServletInitParam"/>
-	<Context docBase="JSP07_ServletContext" path="/Serv" reloadable="true" source="org.eclipse.jst.jee.server:JSP07_ServletContext"/></Host>
+	<Context docBase="JSP07_ServletContext" path="/Serv" reloadable="true" source="org.eclipse.jst.jee.server:JSP07_ServletContext"/><Context docBase="JSP08_TagDirective" path="/JSP08_TagDirective" reloadable="true" source="org.eclipse.jst.jee.server:JSP08_TagDirective"/><Context docBase="JSP09_ImplicitObject" path="/JSP09_ImplicitObject" reloadable="true" source="org.eclipse.jst.jee.server:JSP09_ImplicitObject"/></Host>
     </Engine>
   </Service>
 </Server>
