@@ -34,8 +34,9 @@ INSERT INTO TEST_WRITE VALUES
 (TEST_WRITE_SEQ.nextval, '다섯째글: 게시판', '7531', '박수찬', 0, sysdate);
 
 
-
-
+SELECT * FROM test_write ORDER BY wr_uid DESC;
+INSERT INTO TEST_WRITE(wr_uid, WR_SUBJECT , WR_CONTENT , WR_NAME )
+	SELECT test_write_seq.nextval, WR_SUBJECT , WR_CONTENT , WR_NAME FROM TEST_WRITE;
 
 
 
