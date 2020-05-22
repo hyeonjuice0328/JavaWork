@@ -6,6 +6,20 @@
 <%  // parameter 받아오기
 	int uid = Integer.parseInt(request.getParameter("uid"));
 	// ※ 이 단계에서 parameter 검증 필요
+	
+	int curPage = 1;   // 현재 페이지 (디폴트 1 page)
+	
+	// 현재 몇 페이지인지 parameter 받아오기 + 검증
+	String pageParam = request.getParameter("page");
+	if(pageParam != null && !pageParam.trim().equals("")){
+		try{ 
+			// 1이상의 자연수 이어야 한다
+			int p = Integer.parseInt(pageParam);
+			if(p > 0) curPage = p;
+		} catch(NumberFormatException e){
+			// page parameter 오류는 별도의 exception 처리 안함 
+		}
+	} // end if
 %>
 
 <%!
@@ -17,10 +31,10 @@
 	int cnt = 0;   // DML 결과, executeUpdate()
 	
 	// Connection 에 필요한 값 세팅
-	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	String userid = "scott0316";
-	String userpw = "tiger0316";
+	final String DRIVER = "oracle.jdbc.driver.OracleDriver";  // JDBC 드라이버 클래스
+	final String URL = "jdbc:oracle:thin:@localhost:1521:XE";  // DB 접속 URL
+	final String USERID = "scott0316";  // DB 접속 계정 정보
+	final String USERPW = "tiger0316";
 %>
 
 <%!
@@ -43,9 +57,9 @@
 
 <%
 	try{
-		Class.forName(driver);
+		Class.forName(DRIVER);
 		out.println("드라이버 로딩 성공" + "<br>");
-		conn = DriverManager.getConnection(url, userid, userpw);
+		conn = DriverManager.getConnection(URL, USERID, USERPW);
 		out.println("conn 성공" + "<br>");
 		
 		// 트랜잭션 실행
@@ -85,7 +99,7 @@
 				history.back();
 			</script>
 <%			
-			return;   // 더이상 JSP 프로세싱 하지 않고 종료
+			return;   // ★더이상 JSP 프로세싱 하지 않고 종료★
 		} // end if
 		
 		// 모든 쿼리 성공하면 commit
@@ -116,10 +130,10 @@
 </head>
 <script>
 function chkDelete(uid){
-	//삭제여부 , 다시 확인하고 진행하기
-	var r = confirm("삭제 하시겠습니까?");
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("삭제하시겠습니까?");
 	if(r){
-		location.href= 'deleteOk.jsp?uid=' + uid;
+		location.href = 'deleteOk.jsp?uid=' + uid;
 	}
 }
 </script>
@@ -138,12 +152,11 @@ UID : <%= uid %><br>
 </div>
 <hr>
 <br>
-<button onclick="location.href = 'update.jsp?uid=<%= uid%>'">수정하기</button>
-<button onclick="location.href = 'list.jsp'">목록보기</button>
+<button onclick="location.href='update.jsp?uid=<%= uid%>'">수정하기</button>
+<button onclick="location.href = 'list.jsp?page=<%= curPage%>'">목록보기</button>
 <button onclick="chkDelete(<%= uid %>)">삭제하기</button>
 <button onclick="location.href = 'write.jsp'">신규등록</button>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
 

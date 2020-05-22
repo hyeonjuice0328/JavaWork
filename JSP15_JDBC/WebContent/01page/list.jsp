@@ -2,21 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*"%> <%-- JDBC 관련 import --%>    
 <%@ page import = "java.text.SimpleDateFormat" %>
-
 <%
 	int curPage = 1;   // 현재 페이지 (디폴트 1 page)
 	
 	// 현재 몇 페이지인지 parameter 받아오기 + 검증
 	String pageParam = request.getParameter("page");
 	if(pageParam != null && !pageParam.trim().equals("")){
-		try{
+		try{ 
+			// 1이상의 자연수 이어야 한다
 			int p = Integer.parseInt(pageParam);
-			if(p > 0)
-				curPage = p;
+			if(p > 0) curPage = p;
 		} catch(NumberFormatException e){
-			
+			// page parameter 오류는 별도의 exception 처리 안함 
 		}
-	}
+	} // end if
 %>
 
 <%!
@@ -96,6 +95,11 @@ table, th, td {
 	border-collapse: collapse;
 }
 </style>
+
+<!-- 페이징 -->
+<link rel="stylesheet" type="text/css" href="CSS/common.css"/>
+<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+
 </head>
 <body>	
 		<hr>
@@ -131,7 +135,7 @@ table, th, td {
 			
 			out.println("<td>" + rnum + "</td>");  // rownum 찍어주기
 			out.println("<td>" + uid + "</td>");
-			out.println("<td><a href='view.jsp?uid=" + uid + "'>" + subject + "</a></td>");
+			out.println("<td><a href='view.jsp?uid=" + uid + "&page=" + curPage + "'>" + subject + "</a></td>");
 			out.println("<td>" + name + "</td>");
 			out.println("<td>" + viewcnt + "</td>");
 			out.println("<td>" + regdate + "</td>");
@@ -161,10 +165,13 @@ table, th, td {
 %>
 <%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
 
+<%-- 페이징 --%>
+<jsp:include page="pagination.jsp">
+	<jsp:param value="<%= writePages %>" name="writePages"/>
+	<jsp:param value="<%= totalPage %>" name="totalPage"/>
+	<jsp:param value="<%= curPage %>" name="curPage"/>
+</jsp:include>
 
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
 

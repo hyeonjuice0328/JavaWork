@@ -62,7 +62,6 @@
 	}
 %>
 <%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
-
 <% if(cnt == 0){ %>
 	<script>
 		alert('수정 실패');
@@ -71,10 +70,19 @@
 <% } else { %>
 	<script>
 		alert('수정 성공');
-		location.href="view.jsp?uid=<%= uid%>";
-	</script>	
-
+		location.href = "view.jsp?uid=<%= uid%>";
+	</script>
 <% } %>
+
+
+
+
+
+
+
+
+
+
 
 
 

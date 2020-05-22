@@ -33,6 +33,7 @@ INSERT INTO wtable VALUES
 INSERT INTO wtable VALUES
 (wtable_sequence.nextval, '다섯째글: 게시판', '7531', '박수찬', 0, sysdate);
 
+DELETE FROM TEST_WRITE WHERE WR_UID >10;
 
 
 
