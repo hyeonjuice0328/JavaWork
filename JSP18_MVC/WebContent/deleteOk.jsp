@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="com.lec.beans.WriteDAO"/>
 
-<% // parameter 받아오기
-	int uid = Integer.parseInt(request.getParameter("uid"));
-	// ※ 이 단계에서 parameter 검증 필요
-%>
-    
-<% // DAO 사용한 트렌젝션
-	int cnt = dao.deleteByUid(uid);
+<%  // Controller 로부터 결과 데이터 받음
+	int cnt = (Integer)request.getAttribute("result");
 %>
 
 <% if(cnt == 0){ %>

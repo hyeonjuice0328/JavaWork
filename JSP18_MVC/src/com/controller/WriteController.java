@@ -72,7 +72,24 @@ public class WriteController extends HttpServlet {
 			command = new WriteCommand();
 			command.execute(request, response);
 			viewPage = "view.jsp";
-			break;	
+			break;
+		case "/update.do":
+			command = new SelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
+			command.execute(request, response);
+			viewPage = "update.jsp";
+			break;
+
+		case "/updateOk.do":
+			command = new UpdateCommand();
+			command.execute(request, response);
+			viewPage = "updateOk.jsp";
+			break;  // 디버깅 훈련, 이 break를 없애고, 찾아보기
+
+		case "/deleteOk.do":
+			command = new DeleteCommand();
+			command.execute(request, response);
+			viewPage = "deleteOk.jsp";
+			break;
 					
 		} // end switch
 		

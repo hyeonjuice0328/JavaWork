@@ -3,14 +3,13 @@
 <jsp:useBean id="dao" class="com.lec.beans.WriteDAO"/>
 <%@ page import="com.lec.beans.*" %>
 
-<%  // parameter 받아오기
+<% 
+	WriteDTO [] arr = (WriteDTO [])request.getAttribute("list");
+	// parameter 받아오기
 	int uid = Integer.parseInt(request.getParameter("uid"));
 	// ※ 이 단계에서 parameter 검증 필요
 %>
 
-<%	// DAO 사용한 트렌젝션
-	WriteDTO [] arr = dao.selectByUid(uid);
-%>
  <%
 	if(arr == null || arr.length == 0){ 
 %>
@@ -30,9 +29,6 @@
 	int viewCnt = arr[0].getViewCnt();
 %>
  
-
-
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -69,7 +65,7 @@ function chkSubmit(){
 <button onclick="history.back()">이전으로</button>
 <button onclick="location.href='list.jsp'">목록보기</button>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
 </html>
 

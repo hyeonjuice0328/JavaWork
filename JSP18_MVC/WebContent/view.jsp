@@ -1,36 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="com.lec.beans.WriteDAO"/>
-<%@ page import = "com.lec.beans.*" %>
-<%  // parameter 받아오기
-	int uid = Integer.parseInt(request.getParameter("uid"));
-	// ※ 이 단계에서 parameter 검증 필요
+
+<%@ page import="com.lec.beans.*" %>
+
+<% // Controller 로부터 결과 데이터 받음
+	WriteDTO [] arr = (WriteDTO [])request.getAttribute("list");
 %>
 
 <%
-	//DAO 사용한 트랜젝션
-	WriteDTO [] arr = (WriteDTO [])request.getAttribute("view");
+	if(arr == null || arr.length == 0){ 
 %>
-
-<%
- 	if(arr == null || arr.length == 0){
-%>
-
 			<script>
 				alert("해당 정보가 삭제되거나 없습니다");
 				history.back();
 			</script>
 <%
-		return;
- 	}// end if()
+		return;   // 더이상 JSP 프로세싱 하지 않고 종료
+	} // end if
 %>
 <%
+	int uid = arr[0].getUid();
 	String name = arr[0].getName();
 	String subject = arr[0].getSubject();
 	String content = arr[0].getContent();
 	String regDate = arr[0].getRegDate();
 	int viewCnt = arr[0].getViewCnt();
 %>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,7 +41,7 @@ function chkDelete(uid){
 	// 삭제 여부, 다시 확인 하고 진행하기
 	var r = confirm("삭제하시겠습니까?");
 	if(r){
-		location.href = 'deleteOk.jsp?uid=' + uid;
+		location.href = 'deleteOk.do?uid=' + uid;
 	}
 }
 </script>
@@ -62,10 +60,11 @@ UID : <%= uid %><br>
 </div>
 <hr>
 <br>
-<button onclick="location.href='update.jsp?uid=<%= uid%>'">수정하기</button>
-<button onclick="location.href = 'list.jsp'">목록보기</button>
+<button onclick="location.href='update.do?uid=<%= uid%>'">수정하기</button>
+<button onclick="location.href = 'list.do'">목록보기</button>
 <button onclick="chkDelete(<%= uid %>)">삭제하기</button>
-<button onclick="location.href = 'write.jsp'">신규등록</button>
+<button onclick="location.href = 'write.do'">신규등록</button>
+
 
 </body>
 </html>
