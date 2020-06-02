@@ -1,7 +1,11 @@
 @charset 
 
-.rank_container {
-    margin: 0;
+.notice-rank {
+    display: flex;
+}
+
+.index_rankcontainer {
+    margin: 0 0 0 100px;
     padding: 0;
     font-family: 'PT Sans Narrow', sans-serif;
 }
