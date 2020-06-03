@@ -1,11 +1,20 @@
 package com.command.write;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lec.beans.FileDAO;
 import com.lec.beans.WriteDAO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 public class UpdateCommand implements Command {
 
@@ -14,11 +23,72 @@ public class UpdateCommand implements Command {
 		int cnt = 0;
 
 		WriteDAO dao = new WriteDAO();
-
-		//입력한 값을 받아오기
-		int uid = Integer.parseInt(request.getParameter("uid"));
-		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
+		FileDAO fileDao = new FileDAO();
+		
+		//-------------------------------------------------------------
+		// 업로드 파일들 
+		ServletContext context = request.getServletContext();
+		String saveDirectory = context.getRealPath("upload");
+		
+		int maxPostSize = 5 * 1024 * 1024;
+		String encoding = "utf-8";
+		FileRenamePolicy policy = new DefaultFileRenamePolicy();
+		MultipartRequest multi = null;
+		
+		try {
+			multi = new MultipartRequest(
+					request,
+					saveDirectory,
+					maxPostSize,
+					encoding,
+					policy
+					);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		List<String> originalFileNames = new ArrayList<String>();
+		List<String> fileSystemNames = new ArrayList<String>();
+		
+		Enumeration names = multi.getFileNames();  // type="file" 요소의 name들 추출
+		while(names.hasMoreElements()) {
+			String name = (String)names.nextElement();
+			String originalFileName = multi.getOriginalFileName(name);
+			String fileSystemName = multi.getFilesystemName(name);
+			System.out.println("첨부파일: " + originalFileName + "->" + fileSystemName);
+			
+			if(originalFileName != null && fileSystemName != null) {
+				originalFileNames.add(originalFileName);
+				fileSystemNames.add(fileSystemName);
+			}
+			
+		} // end while
+		// originalFileNames 와 fileSystemNames 
+		
+		
+		//-------------------------------------------------------------
+		// 삭제될 첨부파일들
+		String [] delFiles = multi.getParameterValues("delfile");
+		if(delFiles != null && delFiles.length > 0) { // 삭제할 파일이 존재한다면 
+			int [] delFileUids = new int[delFiles.length];
+			
+			for(int i = 0; i < delFileUids.length; i++) {
+				delFileUids[i] = Integer.parseInt(delFiles[i]);
+			}
+			
+			try {
+				fileDao.deleteByUid(delFileUids, request);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // end if
+		
+		
+		//-------------------------------------------------------------
+		// 입력한 값을 받아오기 -> 글수정
+		int uid = Integer.parseInt(multi.getParameter("uid"));
+		String subject = multi.getParameter("subject");
+		String content = multi.getParameter("content");
 
 		// 유효성 체크  null 이거나, 빈문자열이면 이전화면으로 돌아가기
 		if(subject != null && subject.trim().length() > 0){			
@@ -30,6 +100,17 @@ public class UpdateCommand implements Command {
 
 		} // end if
 
+		//-------------------------------------------------------------
+		// 추가 첨부파일들
+		fileDao = new FileDAO();
+		try {
+			fileDao.insert(uid, originalFileNames, fileSystemNames);
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//multipart 로 받은 뒤 updateOk.jsp 로 넘긴다.
+		request.setAttribute("uid", uid);
 		request.setAttribute("result", cnt);
 
 	}

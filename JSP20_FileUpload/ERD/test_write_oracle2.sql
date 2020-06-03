@@ -46,6 +46,9 @@ CREATE SEQUENCE test_file_seq;
 SELECT * FROM test_write ORDER BY wr_uid DESC;
 SELECT * FROM test_file ORDER BY bf_uid DESC;
 
+select CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME
+from user_constraints
+where CONSTRAINT_NAME = 'SYS_C0036932';
 
 
 
