@@ -1,1 +1,11 @@
-@charset
+@charset 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ft_link{
+    background-color: silver;
+}
+
+

@@ -1,34 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="CSS/ham.css" />
-    <title>Bubble Effect</title>
-  </head>
-  <body>
-    <nav>
-      <div class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#">SiteCommand</a></li>
-        <li><a href="#">Question</a></li>
-        <li><a href="#">FreeBoard</a></li>
-        <li><a href="#">Board</a></li>
-        <li><a href="#">Ranking</a></li>
-        <li><a href="#">Notice</a></li>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="CSS/ham.css" />
+  <title>Bubble Effect</title>
+</head>
+
+<body>
+  <nav>
+
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <ul class="nav-links">
+      <ul class="nav-login-links">
+        <li><a onclick="location.href='mypage.uo'" id="mypage">MyPage</a></li>
+        <li><a onclick="location.href='login.uo'" id="login" id="login">LogIn</a></li>
       </ul>
-    </nav>
+      <li><a onclick="location.href='#.po'">SiteCommand</a></li>
+      <li><a onclick="location.href='FreeBoardList.po'">FreeBoard</a></li>
+      <li><a onclick="location.href='tipBoardList.po'">tipBoard</a></li>
+      <li><a onclick="location.href='#.po'">Ranking</a></li>
+      <li><a onclick="location.href='noticeBoardList.po'">Notice</a></li>
+    </ul>
+  </nav>
 
-    <section class="landing">
-      <img src="circle.svg" alt="dots" />
-      <h2>SYSOUT</h2>
-    </section>
+  <section class="landing">
+    <ul class="login-links">
+      <li><a href="#" id="mypage">MyPage</a></li>
+      <li><a href="#" id="login">LogIn</a></li>
+     </ul> 
+    <img src="circle.svg" alt="dots" id="nav-logo"/>
+    <h2>SYSOUT</h2>
+  </section>
 
-    <script src="JS/ham.js"></script>
-  </body>
+  <script src="JS/ham.js"></script>
+
+  <hr><br>
+  <div class="notice-rank">
+      <div class="index-noticecontainer">
+          <div class="noticebtn">
+              <a class="nbtn" href="#">N O T I C E</a>
+          </div>
+          <div class="notice-1">
+              <div class="notice-text">
+                  <a class="ntext"${} </a>
+              </div>
+              <div class="notice-regdate">
+                  <a class="nregdate">${list[0].post_regdate}2020-06-02</a>
+              </div>
+          </div>
+      </div>
+      <div class="index_rankcontainer">
+          <div class="card" id="btn">
+              <a class="rank_btn" href="#">전체 랭킹 현황</a>
+          </div>
+          <div class="card">
+              <i class="fas fa-crown"></i>
+              <span class="title"> name</span>
+              <span class="rank"> 90</span>
+          </div>
+          <div class="card">
+              <i class="fas fa-crown"></i>
+              <span class="title"> name</span>
+              <span class="rank"> 90</span>
+          </div>
+          <div class="card">
+              <i class="fas fa-crown"></i>
+              <span class="title"> name</span>
+              <span class="rank"> 90</span>
+          </div>
+          <div class="card">
+              <i class="fas fa-user "></i>
+              <span class="title"> name</span>
+              <span class="rank"> 90</span>
+          </div>
+          <div class="card">
+              <i class="fas fa-user "></i>
+              <span class="title"> name</span>
+              <span class="rank"> 90</span>
+          </div>
+      </div>
+  </div>    
+</article>
+
+  <footer>
+  푸터입니다.
+  </footer>
+
+</body>
+
 </html>
