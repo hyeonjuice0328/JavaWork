@@ -172,40 +172,40 @@ public class WriteDAO {
 		return arr;
 	} // end select()
 	
-//	// 특정 uid 의 글 내용 읽기, 조회수 증가
-//	// viewCnt 도 1 증가 해야 하고, 글 읽어와야 한다 --> 트랜잭션 처리
-//	public WriteDTO [] readByUid(int uid) throws SQLException{
-//		int cnt = 0;
-//		WriteDTO [] arr = null;
-//		
-//		try {
-//			// 트랜잭션 처리
-//			// Auto-commit 비활성화
-//			conn.setAutoCommit(false);
-//			
-//			// 쿼리들 수행
-//			pstmt = conn.prepareStatement(D.SQL_WRITE_INC_VIEWCNT);
-//			pstmt.setInt(1, uid);
-//			cnt = pstmt.executeUpdate();
-//			
-//			pstmt.close();
-//			
-//			pstmt = conn.prepareStatement(D.SQL_WRITE_SELECT_BY_UID);
-//			pstmt.setInt(1, uid);
-//			rs = pstmt.executeQuery();
-//			
-//			arr = createArray(rs);
-//			conn.commit();
-//			
-//		} catch(SQLException e) {
-//			conn.rollback();
-//			throw e;
-//		} finally {
-//			close();
-//		}
-//		
-//		return arr;
-//	} // end readByUid()
+	// 특정 uid 의 글 내용 읽기, 조회수 증가
+	// viewCnt 도 1 증가 해야 하고, 글 읽어와야 한다 --> 트랜잭션 처리
+	public WriteDTO [] readByUid(int uid) throws SQLException{
+		int cnt = 0;
+		WriteDTO [] arr = null;
+		
+		try {
+			// 트랜잭션 처리
+			// Auto-commit 비활성화
+			conn.setAutoCommit(false);
+			
+			// 쿼리들 수행
+			pstmt = conn.prepareStatement(D.SQL_WRITE_INC_VIEWCNT);
+			pstmt.setInt(1, uid);
+			cnt = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(D.SQL_WRITE_SELECT_BY_UID);
+			pstmt.setInt(1, uid);
+			rs = pstmt.executeQuery();
+			
+			arr = createArray(rs);
+			conn.commit();
+			
+		} catch(SQLException e) {
+			conn.rollback();
+			throw e;
+		} finally {
+			close();
+		}
+		
+		return arr;
+	} // end readByUid()
 	
 	
 	// 특정 uid 의 글 만 SELECT (조회수 증가 없슴!)

@@ -10,7 +10,6 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 import common.D;
 
@@ -75,52 +74,6 @@ public class WriteDAO {
 		return cnt;
 	}
 	
-	// 새글작성 <-- 제목, 내용, 작성자
-	//      <-- 첨부파일(들)
-	public int insert(String subject, String content, String name,
-			// 이미 파일은 저장되어 있다 (cos 라이브러리)
-			List<String> originalFileNames,    // 원본 파일명(들)
-			List<String> fileSystemNames      // 저장된 파일명(들)
-			) throws SQLException {
-		int cnt = 0;
-		int uid = 0;  // INSERT 된 글의 wr_uid 값
-		
-		try {	
-			// 자동생성된 컬럼의 이름(들)이 담긴 배열 준비 (auto-generated keys)
-			String [] generatedCols = {"wr_uid"};
-			
-			// Statement 나 PreparedStatement 생성시 두번째 매개변수로 auto-genereated keys 배열 넘겨줌 
-			pstmt = conn.prepareStatement(D.SQL_WRITE_INSERT, generatedCols);
-			pstmt.setString(1, subject);
-			pstmt.setString(2, content);
-			pstmt.setString(3, name);
-			
-			cnt = pstmt.executeUpdate();
-			
-			// auto-generated keys 값 뽑아오기
-			rs = pstmt.getGeneratedKeys();
-			if(rs.next()) {
-				uid = rs.getInt(1);  // 첫번째 컬럼
-			}
-			
-			pstmt.close();
-			// 첨부파일(들) 정보 테이블에 INSERT 하기
-			pstmt = conn.prepareStatement(D.SQL_FILE_INSERT);
-			for(int i = 0; i < originalFileNames.size(); i++) {
-				pstmt.setString(1, originalFileNames.get(i));
-				pstmt.setString(2, fileSystemNames.get(i));
-				pstmt.setInt(3, uid);
-				pstmt.executeUpdate();
-			} // end for
-			
-			
-		} finally {
-			close();			
-		}
-		
-		return cnt;
-	}
-	
 	// ResultSet --> DTO 배열로 리턴
 	public WriteDTO [] createArray(ResultSet rs) throws SQLException {
 		WriteDTO [] arr = null;  // DTO 배열
@@ -172,40 +125,77 @@ public class WriteDAO {
 		return arr;
 	} // end select()
 	
-//	// 특정 uid 의 글 내용 읽기, 조회수 증가
-//	// viewCnt 도 1 증가 해야 하고, 글 읽어와야 한다 --> 트랜잭션 처리
-//	public WriteDTO [] readByUid(int uid) throws SQLException{
-//		int cnt = 0;
-//		WriteDTO [] arr = null;
-//		
-//		try {
-//			// 트랜잭션 처리
-//			// Auto-commit 비활성화
-//			conn.setAutoCommit(false);
-//			
-//			// 쿼리들 수행
-//			pstmt = conn.prepareStatement(D.SQL_WRITE_INC_VIEWCNT);
-//			pstmt.setInt(1, uid);
-//			cnt = pstmt.executeUpdate();
-//			
-//			pstmt.close();
-//			
-//			pstmt = conn.prepareStatement(D.SQL_WRITE_SELECT_BY_UID);
-//			pstmt.setInt(1, uid);
-//			rs = pstmt.executeQuery();
-//			
-//			arr = createArray(rs);
-//			conn.commit();
-//			
-//		} catch(SQLException e) {
-//			conn.rollback();
-//			throw e;
-//		} finally {
-//			close();
-//		}
-//		
-//		return arr;
-//	} // end readByUid()
+	// 페이징 관련
+	// 몇번째 from 부터 몇개 rows 를 SELECT
+	public WriteDTO [] selectFromRow(int from, int rows) throws SQLException {
+		WriteDTO [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_WRITE_SELECT_FROM_ROW);
+			pstmt.setInt(1,  from);
+			pstmt.setInt(2,  from + rows);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);			
+		} finally {
+			close();
+		} // end try
+		
+		return arr;
+	} // end selectFromRow()
+	
+	// 전체 글의 개수
+	public int countAll() throws SQLException {
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_WRITE_COUNT_ALL);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt(1);
+		} finally {
+			close();
+		} // end try
+		
+		return cnt;
+	} // countAll()
+	
+	
+	
+	
+	// 특정 uid 의 글 내용 읽기, 조회수 증가
+	// viewCnt 도 1 증가 해야 하고, 글 읽어와야 한다 --> 트랜잭션 처리
+	public WriteDTO [] readByUid(int uid) throws SQLException{
+		int cnt = 0;
+		WriteDTO [] arr = null;
+		
+		try {
+			// 트랜잭션 처리
+			// Auto-commit 비활성화
+			conn.setAutoCommit(false);
+			
+			// 쿼리들 수행
+			pstmt = conn.prepareStatement(D.SQL_WRITE_INC_VIEWCNT);
+			pstmt.setInt(1, uid);
+			cnt = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(D.SQL_WRITE_SELECT_BY_UID);
+			pstmt.setInt(1, uid);
+			rs = pstmt.executeQuery();
+			
+			arr = createArray(rs);
+			conn.commit();
+			
+		} catch(SQLException e) {
+			conn.rollback();
+			throw e;
+		} finally {
+			close();
+		}
+		
+		return arr;
+	} // end readByUid()
 	
 	
 	// 특정 uid 의 글 만 SELECT (조회수 증가 없슴!)
@@ -254,6 +244,32 @@ public class WriteDAO {
 		return cnt;
 	} // end deleteByUid()
 	
+	// 특정 uid 글(들) 삭제하기 - 매개변수 변경 
+	public int deleteByUid(int [] uids) throws SQLException {
+		// 매개변수 검증
+		if(uids == null || uids.length == 0) return 0;
+		
+		int cnt = 0;
+		
+		try {
+			StringBuffer sql = new StringBuffer("DELETE FROM test_write WHERE wr_uid IN (");
+			for(int uid : uids) {
+				sql.append(uid + ",");
+			}
+			// 맨 끝의 콤마 삭제 
+			sql.deleteCharAt(sql.lastIndexOf(","));
+			sql.append(")");
+			
+			stmt = conn.createStatement();
+			cnt = stmt.executeUpdate(sql.toString());
+			
+		} finally {
+			close();
+		}
+		
+		
+		return cnt;
+	} // end deleteByUid()
 	
 	
 	
