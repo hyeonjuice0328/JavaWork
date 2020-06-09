@@ -1,0 +1,73 @@
+@charset 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    font-size: 0.5rem;
+}
+
+.ft_link {
+    background-color: rgba(192, 190, 190, 0.534);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.ft_link ul {
+    list-style: none;
+}
+.snsicon {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.snsicon {
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+}
+
+.tel {
+    font-size: 1rem;
+}
+
+.teltime {
+    font-size: 0.4rem;
+}
+.ft_info {
+    display: flex;
+    padding: 0 25%;
+    justify-content: space-around;
+}
+.ft_info a {
+    text-decoration: none;
+    color: #333333;
+}
+.ft_addr1, .ft_addr2, .ft_addr3 {
+    display: flex;
+    justify-content: space-around;
+}
+p.call {
+    margin-top: 16px;
+}
+.logo p {
+    margin-bottom: 0px;
+}
+.syslogo{
+    width: 40px;
+    height: 40px;
+    margin-bottom:7px ;
+}
+p.callnumber {
+    margin-bottom: 5px;
+}
+.about p {
+    margin-top: 16px;
+}
