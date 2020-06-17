@@ -41,7 +41,7 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path>ERD\test_write_oracle.sql</output_path>
+				<output_path>ERD\test_category.sql</output_path>
 				<encoding>UTF-8</encoding>
 				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -134,8 +134,8 @@
 			<connections>
 			</connections>
 			<display>false</display>
-			<creation_date>2020-05-21 09:18:59</creation_date>
-			<updated_date>2020-06-16 11:44:19</updated_date>
+			<creation_date>2020-06-16 13:25:20</creation_date>
+			<updated_date>2020-06-16 13:41:52</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -180,13 +180,13 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>wr_content</logical_name>
-			<physical_name>wr_content</physical_name>
-			<type>clob</type>
+			<logical_name>ca_depth</logical_name>
+			<physical_name>ca_depth</physical_name>
+			<type>decimal</type>
 		</word>
 		<word>
 			<id>1</id>
-			<length>40</length>
+			<length>30</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -196,8 +196,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>wr_name</logical_name>
-			<physical_name>wr_name</physical_name>
+			<logical_name>ca_name</logical_name>
+			<physical_name>ca_name</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
@@ -212,13 +212,13 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>wr_regdate</logical_name>
-			<physical_name>wr_regdate</physical_name>
-			<type>date</type>
+			<logical_name>ca_order</logical_name>
+			<physical_name>ca_order</physical_name>
+			<type>decimal</type>
 		</word>
 		<word>
 			<id>3</id>
-			<length>200</length>
+			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -228,9 +228,9 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>wr_subject</logical_name>
-			<physical_name>wr_subject</physical_name>
-			<type>varchar(n)</type>
+			<logical_name>ca_parent</logical_name>
+			<physical_name>ca_parent</physical_name>
+			<type>decimal</type>
 		</word>
 		<word>
 			<id>4</id>
@@ -244,24 +244,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>wr_uid</logical_name>
-			<physical_name>wr_uid</physical_name>
-			<type>decimal</type>
-		</word>
-		<word>
-			<id>5</id>
-			<length>null</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>wr_viewcnt</logical_name>
-			<physical_name>wr_viewcnt</physical_name>
+			<logical_name>ca_uid</logical_name>
+			<physical_name>ca_uid</physical_name>
 			<type>decimal</type>
 		</word>
 	</dictionary>
@@ -270,11 +254,11 @@
 	<contents>
 		<table>
 			<id>0</id>
-			<height>170</height>
-			<width>226</width>
+			<height>241</height>
+			<width>337</width>
 				<font_name>맑은 고딕</font_name>
 				<font_size>9</font_size>
-			<x>684</x>
+			<x>108</x>
 			<y>84</y>
 			<color>
 				<r>128</r>
@@ -283,8 +267,8 @@
 			</color>
 			<connections>
 			</connections>
-			<physical_name>test_write</physical_name>
-			<logical_name>게시판글</logical_name>
+			<physical_name>test_category</physical_name>
+			<logical_name>카테고리</logical_name>
 			<description></description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
@@ -324,7 +308,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>3</word_id>
+					<word_id>1</word_id>
 					<id>1</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -357,80 +341,14 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>0</word_id>
+					<word_id>3</word_id>
 					<id>2</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>clob</type>
-					<constraint></constraint>
-					<default_value></default_value>
-					<auto_increment>false</auto_increment>
-					<foreign_key>false</foreign_key>
-					<not_null>false</not_null>
-					<primary_key>false</primary_key>
-					<unique_key>false</unique_key>
-					<character_set></character_set>
-					<collation></collation>
-					<sequence>
-						<name></name>
-						<schema></schema>
-						<increment></increment>
-						<min_value></min_value>
-						<max_value></max_value>
-						<start></start>
-						<cache></cache>
-						<nocache>false</nocache>
-						<cycle>false</cycle>
-						<order>false</order>
-						<description></description>
-						<data_type></data_type>
-						<decimal_size>0</decimal_size>
-					</sequence>
-				</normal_column>
-				<normal_column>
-					<word_id>1</word_id>
-					<id>3</id>
-					<description></description>
-					<unique_key_name></unique_key_name>
-					<logical_name></logical_name>
-					<physical_name></physical_name>
-					<type>varchar(n)</type>
-					<constraint></constraint>
-					<default_value></default_value>
-					<auto_increment>false</auto_increment>
-					<foreign_key>false</foreign_key>
-					<not_null>true</not_null>
-					<primary_key>false</primary_key>
-					<unique_key>false</unique_key>
-					<character_set></character_set>
-					<collation></collation>
-					<sequence>
-						<name></name>
-						<schema></schema>
-						<increment></increment>
-						<min_value></min_value>
-						<max_value></max_value>
-						<start></start>
-						<cache></cache>
-						<nocache>false</nocache>
-						<cycle>false</cycle>
-						<order>false</order>
-						<description></description>
-						<data_type></data_type>
-						<decimal_size>0</decimal_size>
-					</sequence>
-				</normal_column>
-				<normal_column>
-					<word_id>5</word_id>
-					<id>4</id>
-					<description></description>
-					<unique_key_name></unique_key_name>
-					<logical_name></logical_name>
-					<physical_name></physical_name>
 					<type>decimal</type>
-					<constraint>DEFAULT 0</constraint>
+					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
@@ -457,13 +375,46 @@
 				</normal_column>
 				<normal_column>
 					<word_id>2</word_id>
-					<id>5</id>
+					<id>3</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>date</type>
-					<constraint>DEFAULT SYSDATE</constraint>
+					<type>decimal</type>
+					<constraint>DEFAULT 1</constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>0</word_id>
+					<id>4</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint>DEFAULT 1</constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
