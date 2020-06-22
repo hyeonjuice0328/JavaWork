@@ -1,0 +1,163 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 화면 전체 테두리 컬러 */
+html{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  border: 20px solid rgb(248, 204, 156);
+}
+/* 기본 표 스타일 th, td */
+th{
+  border: 1px solid #808080 !important;
+  text-align: center;
+  height: 1rem;
+  font-size: 0.6rem;
+  background-color:  #4f82d485;
+}
+td{
+  height: 1rem;
+  font-size: 0.6rem; 
+}
+/* 구분선 */
+hr{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+section{
+  display: flex;
+}
+/* 체온 글씨 색 */
+span{
+  color: red;
+}
+.table-box{
+  height: 83vh !important;
+}
+.maintable{
+  overflow: auto;
+  border: 1px solid #808080;
+  border-radius: 0.38em;
+}
+.right-table{
+  width: 100% !important;
+  margin-right: 0;
+}
+/* 화상통화 상자 */
+.box{
+  width: 60%;
+  margin-right: 0.38em;
+  border: 1px solid #808080;
+  border-radius: 0.38em;
+  padding: 0.5%;
+}
+/* 화상통화 상자 */
+.box-top{
+  display: flex;
+}
+.box-bottom{
+  width: 50%;
+}
+/* 화상통화, 비디오 출력 화면 */
+.box1{
+  width: 50% ;
+  line-height: 80vh;
+  height: 80vh;
+  margin: 0.1%;
+  border-radius: 0.38em;
+  background-color: #c0c0c09d;
+  color: #a7a7a7;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.box2{
+  width: 100% ;
+  line-height: 60vh;
+  height: 58vh ;
+  margin: 0.1%;
+  border-radius: 0.38em;
+  background-color: #a7a7a7;
+  color: #757575;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.date{
+  width: 5%;
+  vertical-align: middle !important;
+  border-top:none !important;
+  border-left:none !important;
+}
+.oxygen{
+  vertical-align: middle !important;
+  border-top:none !important;
+  width: 5%;
+}
+.steth{
+  vertical-align: middle !important;
+  border-top:none !important;
+  width: 15%;
+}
+.oral{
+  vertical-align: middle !important;
+  border-top:none !important;
+  width: 15%;
+}
+.consult{
+  vertical-align: middle !important;
+  border-top:none !important;
+  width: 15% !important;
+}
+.disease{
+  vertical-align: middle !important;
+  border-top:none !important;
+  width: 10%;
+}
+.prescription{
+  vertical-align: middle !important;
+  border-top:none !important;
+  border-right: none !important;
+  width: 35%;
+}
+.table{
+  margin-bottom: 0.2em;
+}
+.exit{
+  margin-left: 0.3em;
+}
+/* Main버튼, exit버튼, startexam버튼 */
+.mainbtn, .subbtn{
+  width: 32%;
+  font-size: 1em;
+  /* margin: 0.2%; */
+}
+.mainbtn{
+  margin-right: 0;
+}
+a{
+  color: black;
+}
+/* modal button */
+.btn-edit{
+  font-size: 0.38em;
+  padding: 0;
+  float: right;
+  border-radius: 0.38em;
+}
+.modal-input{
+  border:0;
+  width: 100%;
+}
+.modal-input:focus{
+  outline: none;
+}
+.closebtn{
+  color: gray;
+}
+/* 재생, 음향 아이콘*/
+.icon{
+  float: right;
+}
