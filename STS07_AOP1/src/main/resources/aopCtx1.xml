@@ -6,3 +6,5 @@
 	<bean name="service1" class="com.lec.spring.aop01.MyService11"/>
 	<bean name="service2" class="com.lec.spring.aop01.MyService12"/>
 </beans>
+
+

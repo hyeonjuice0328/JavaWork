@@ -15,3 +15,5 @@
 	<bean name="service21" class="com.lec.spring.aop02.MyService21"/>
 	<bean name="service22" class="com.lec.spring.aop02.MyService22"/>
 </beans>
+
+
