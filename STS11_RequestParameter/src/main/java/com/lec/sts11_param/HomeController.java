@@ -11,9 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lec.beans.WriteDTO;
 
@@ -46,7 +49,7 @@ public class HomeController {
 	// handler 메소드에서도 서블릿에서 보앗던 HttpServletRequest, HttpServletResponse 매개변수 가능.!!!
 	
 	@RequestMapping(value = "/member/delete" , method = RequestMethod.GET)   // -> /member/delete?id=34
-	public String delMember(Model model , HttpServletRequest request) { // 순서 바뀌어도 동작
+	public String delMember(Model model , HttpServletRequest request) { // 순서 바뀌어도 동작(handler / request)
 		String id = request.getParameter("id");
 		model.addAttribute("mbId", id);
 		return "member/delete";
@@ -95,7 +98,7 @@ public class HomeController {
 		@RequestMapping("member/find")
 		public String findMember(Model model,
 				@RequestParam("id") String userid, // name이 "id" parameter 값은 받아온다. 
-				@RequestParam("name") String username) {
+				@RequestParam("name") String username) { // name 이라는 param 값이 오면 username 으로 받겠다
 			
 			model.addAttribute("id", userid);
 			model.addAttribute("name", username);
@@ -106,7 +109,7 @@ public class HomeController {
 		
 	
 	//=========================================================
-	// command 객체 사용 (command Object)
+	// command 객체 사용 (command Object) == DTO 객체 
 		
 	@RequestMapping("/board/write")
 	public String writeBoard() {
@@ -133,12 +136,68 @@ public class HomeController {
 //		}
 
 
-	// command 사용 하는 방식
-	public String wrtieOkBoard(WriteDTO dto) {
-				
+	// command 사용 하는 방식 / 매게변수로 writedto type 으로 받기 (writedto.java 에서 getter setter 의 이름이 매칭)
+
+	// 커맨드 객체 사용
+	//	public String wrtieOkBoard(WriteDTO dto) {
+		
+	// 커맨드 객체에 attribute id 변경
+	public String wrtieOkBoard(
+			@ModelAttribute("DTO") WriteDTO dto) {
+			
+		System.out.println(dto);
 		return "board/writeOk";
 	}
+	
+	// @PathVariable 방식 : request parameter	를  GET 방식의 query string이 아닌
+	// URL 경로에 담아 전달하는 방식
+	@RequestMapping("/board/writePath/{name}/{subject}/{content}")
+	public String writePathBoard(Model model,
+			@PathVariable String name,
+			@PathVariable String subject,
+			@PathVariable String content
+			) { 
+		model.addAttribute("name", name);
+		model.addAttribute("subject", subject);
+		model.addAttribute("content", content);
+		return "board/writePath";
+	}
+	
+	@RequestMapping("/member/ageCheck")
+	public String chkAge(int age,
+			RedirectAttributes redirectAttr) {
+		redirectAttr.addAttribute("age", age); // name ("age")지정해서 넘겨준다.
+		if(age < 19) {
+			return "redirect:/member/underAge"; // 조건에 맞으면 새로 request
+		} else {
+			return "redirect:/member/adult";
+		}
+	}
+	
+	// 각각에 대해 동작하는 handler
+	@RequestMapping("/member/underAge")
+	public String pageUnderAge(
+			@RequestParam("age") int age, Model model
+			) {
+		// model 에 담기 -> view 까지 가게 된다. 
+		model.addAttribute("age", age);
+		return "member/ageUnder";
+	}
+	
+	@RequestMapping("/member/adult")
+	public String pageAdult(
+			@RequestParam("age") int age, Model model
+			) {
+		return "member/ageAdult";
+	}
+	
+	// 경로 확인용 
+	@RequestMapping(value = "/common") // 만약에 common 으로 요청이 들어온다면 
+	public String cccmmm() {			// cccmmm() 핸들러가 수행되고 ,
+		return "comn";  // --> /WEB-INF/views/comn.jsp 를 리턴하여 response 되게 한다. 
 		
+	}
+	
 	}
 		
 		

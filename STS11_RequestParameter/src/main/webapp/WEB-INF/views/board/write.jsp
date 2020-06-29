@@ -32,6 +32,16 @@ function chkSubmit(){  // 폼 검증
 <h2>글작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
+
+<%-- int 매개변수 받는 setter 도 동작할까? 
+	 작성자, 제목, 내용은 String type 이었지만 
+	 uid 는 value=123 은 String 으로 넘어가지만
+	 writeDTO 에서는 int type 으로 정의되어있다.
+	 => 결과 : 제대로 동작한다 (의미:자동으로 parsing 해준다.)
+--%>
+uid: 
+<input type="text" name="uid" value="123"/><br>
+
 작성자:
 <input type="text" name="name" value="현주"/><br>
 제목:
