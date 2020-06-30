@@ -36,9 +36,4 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/common")
-	public String cccmmm() {
-		return "comn";
-	}
-	
 }
