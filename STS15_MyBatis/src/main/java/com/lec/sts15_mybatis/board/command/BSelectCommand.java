@@ -14,9 +14,10 @@ public class BSelectCommand implements BCommand {
 	public void execute(Model model) {
 		Map<String, Object> map = model.asMap();
 		int uid = (Integer)map.get("uid");
-		BWriteDAO dao = new BWriteDAO();
-		BWriteDTO dto = dao.selectByUid(uid);
-		model.addAttribute("list", Arrays.asList(dto));
+		
+//		BWriteDAO dao = new BWriteDAO();
+//		BWriteDTO dto = dao.selectByUid(uid);
+//		model.addAttribute("list", Arrays.asList(dto));
 		
 
 	}

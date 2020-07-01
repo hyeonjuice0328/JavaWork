@@ -1,6 +1,7 @@
 package com.lec.sts15_mybatis.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +17,22 @@ import com.lec.sts15_mybatis.board.command.BSelectCommand;
 import com.lec.sts15_mybatis.board.command.BUpdateCommand;
 import com.lec.sts15_mybatis.board.command.BViewCommand;
 import com.lec.sts15_mybatis.board.command.BWriteCommand;
-
+import org.apache.ibatis.session.SqlSession;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	
 	private BCommand command;
 	private JdbcTemplate template;
-	
+	//Mybatis 용
+	private SqlSession sqlSession;
+
+	@Autowired
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+		C.sqlSession = sqlSession;
+	}
+
 	public BoardController() {
 		super();
 		System.out.println("BoardController() 생성");

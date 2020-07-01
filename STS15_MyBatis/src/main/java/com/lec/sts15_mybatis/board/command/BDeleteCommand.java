@@ -12,10 +12,10 @@ public class BDeleteCommand implements BCommand {
 	public void execute(Model model) {
 		Map<String, Object> map = model.asMap();
 		int uid = (Integer)map.get("uid");
-		BWriteDAO dao = new BWriteDAO();
 		
-		int cnt = dao.deleteByUid(uid);
-		model.addAttribute("result", cnt);		
+//		BWriteDAO dao = new BWriteDAO();
+//		int cnt = dao.deleteByUid(uid);
+//		model.addAttribute("result", cnt);		
 		
 	}
 
