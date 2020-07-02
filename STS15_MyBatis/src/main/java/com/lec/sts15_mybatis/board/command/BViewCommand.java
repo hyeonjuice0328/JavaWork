@@ -1,5 +1,6 @@
 package com.lec.sts15_mybatis.board.command;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.ui.Model;
@@ -8,24 +9,32 @@ import com.lec.sts15_mybatis.board.C;
 import com.lec.sts15_mybatis.board.beans.BWriteDTO;
 import com.lec.sts15_mybatis.board.beans.IWriteDAO;
 
-public class BUpdateCommand implements BCommand {
+public class BViewCommand implements BCommand {
 
 	@Override
 	public void execute(Model model) {
 		Map<String, Object> map = model.asMap();
-		BWriteDTO dto = (BWriteDTO)map.get("dto");
+		int uid = (Integer)map.get("uid");
 
 //		BWriteDAO dao = new BWriteDAO();
-//		int cnt = dao.update(dto);
-//		model.addAttribute("result", cnt);
+//		BWriteDTO dto = dao.readByUid(uid);
+//		model.addAttribute("list", Arrays.asList(dto));
 		
 		IWriteDAO dao = C.sqlSession.getMapper(IWriteDAO.class);
+		dao.incViewCnt(uid); // 조회수 증가
 		
-		//model.addAttribute("result", dao.update(dto));
-		model.addAttribute("result", dao.update(dto.getUid(), dto));
+		BWriteDTO dto = dao.selectByUid(uid);  // 똑똑하게 BWriteDTO 를 리턴한다.
+		model.addAttribute("list", Arrays.asList(dto));
+		
+		// Arrays.asList(new String[]{"aaa", "bbb"})
+		// Arrays.asList("aaa", "bbb")
+
 	}
 
 }
+
+
+
 
 
 
