@@ -171,7 +171,7 @@
 	
 	
 	
-	<Context docBase="STS15_MyBatis" path="/sts15_mybatis" reloadable="true" source="org.eclipse.jst.jee.server:STS15_MyBatis"/><Context docBase="STS16_Interceptor" path="/sts16_interceptor" reloadable="true" source="org.eclipse.jst.jee.server:STS16_Interceptor"/><Context docBase="STS19_REST" path="/sts19_rest" reloadable="true" source="org.eclipse.jst.jee.server:STS19_REST"/><Context docBase="JSPEX_AJAX_SPA" path="/JSPEX_AJAX_SPA" reloadable="true" source="org.eclipse.jst.jee.server:JSPEX_AJAX_SPA"/></Host>
+	<Context docBase="STS15_MyBatis" path="/sts15_mybatis" reloadable="true" source="org.eclipse.jst.jee.server:STS15_MyBatis"/><Context docBase="STS16_Interceptor" path="/sts16_interceptor" reloadable="true" source="org.eclipse.jst.jee.server:STS16_Interceptor"/><Context docBase="STS19_REST" path="/sts19_rest" reloadable="true" source="org.eclipse.jst.jee.server:STS19_REST"/><Context docBase="JSPEX_AJAX_SPA" path="/JSPEX_AJAX_SPA" reloadable="true" source="org.eclipse.jst.jee.server:JSPEX_AJAX_SPA"/><Context docBase="JavaPrj" path="/JavaPrj" reloadable="true" source="org.eclipse.jst.jee.server:JavaPrj"/></Host>
    
     </Engine>
   </Service>
