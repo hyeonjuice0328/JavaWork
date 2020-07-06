@@ -8,35 +8,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/ticket")
 public class TicketController {
-
-	@Autowired 	// 트랜젝션 수행하는 객체
+	@Autowired
 	TicketService ticketService;
-	//ticketservice 는  자동주입 받자 
 	
 	@RequestMapping("/buy_ticket")
 	public String buy_ticket() {
 		return "ticket/buy_ticket";
 	}
 	
-	// 티켓 구매 처리 (트랜젝션)
+	// 티켓 구매 처리 (트랜잭션)
 	@RequestMapping("/buy_ticket_card")
 	public String buy_ticket_card(TicketDTO dto, Model model) {
 		
 		String page = "ticket/buy_ticket_done";
 		
 		try {
-			// 트랜젝션 수행!!!!!!!!!
-			ticketService.buyTicket(dto);
-			// model 에 결과 담기
+			ticketService.buyTicket(dto);  // 트랜잭션 수행!
 			model.addAttribute("ticketInfo", dto);
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-			// 트랜젝션 오류 발생 시 .. 
-			page = "ticket/buy_ticket_fail"; 
+			page = "ticket/buy_ticket_fail";  // 트랜잭션 오류 발생시..			
 		}
 		
-		return page;
 		
+		return page;		
 	}
 	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

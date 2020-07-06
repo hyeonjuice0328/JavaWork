@@ -1,33 +1,30 @@
 package com.lec.sts19_rest.board.beans;
 
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="employee") // 이 클래스 데이터는 employee 라는 루트 태그로 만들어 진다는 의미 
-public class EmployeeVo {
-	
-	@XmlAttribute //  <id> 의 attribute
+@XmlRootElement(name = "employee")   // <employee>
+public class EmployeeVO {
+	@XmlAttribute		// "id" attribute
 	private Integer id;
 	
-	@XmlElement 	// <name> 의 element
+	@XmlElement         // <name> element
 	private String name;
 	
-	@XmlElement
+	@XmlElement			// <age> element
 	private int age;
 	
-	@XmlElement		// <score> 의 elements!
+	@XmlElement			// <score> elements !
 	private int[] score;
 	
-	//annotation 없으면 XML 변환에 포함되지 않는다. 
+	// 어노테이션 없느면 XML변환에 포함 안됨.
 	private double point;
 	
-	
-	public EmployeeVo() {
+	public EmployeeVO() {
 		super();
 	}
-	public EmployeeVo(Integer id, String name, int age, int[] score, double point) {
+	public EmployeeVO(Integer id, String name, int age, int[] score, double point) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -36,7 +33,8 @@ public class EmployeeVo {
 		this.point = point;
 	}
 	
-	// getter 생성 - setter 생성하지 않는다. (readonly의 기능 = immutable)
+	// getter 만 제공 : read-only 속성, immutable
+	
 	public Integer getId() {
 		return id;
 	}
@@ -54,4 +52,13 @@ public class EmployeeVo {
 	}
 	
 	
+	
 }
+
+
+
+
+
+
+
+

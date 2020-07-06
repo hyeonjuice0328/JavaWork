@@ -14,37 +14,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lec.sts19_rest.board.C;
 import com.lec.sts19_rest.board.beans.BWriteDTO;
 import com.lec.sts19_rest.board.beans.EmployeeListVO;
-import com.lec.sts19_rest.board.beans.EmployeeVo;
+import com.lec.sts19_rest.board.beans.EmployeeVO;
 import com.lec.sts19_rest.board.beans.IWriteDAO;
 
-@RestController // rest 를 구현하는 요소중에 하나가 data 를 response 한다.
+@RestController
 @RequestMapping("/MyRest")
 public class MyRestController {
 	
-	// handler 만들기 
 	@RequestMapping("/")
 	public String helloTEXT() {
 		return "Hello REST";
 	}
 	
-	// 핸들러 추가 - 자바 객체 dto 를 return 하는 핸들러?!
 	@RequestMapping("/helloJSON")
 	public BWriteDTO helloJSON() {
 		BWriteDTO dto = 
-				new BWriteDTO(100, "안녕하세요", "REST", "JSON", 
+				new BWriteDTO(100, "안녕하세요", "REST", "JSON이당!", 
 						123, new Timestamp(10000));
+		
 		return dto;
 	}
 	
-	// 핸들러 추가  - List 객체 return (json배열로 리턴)
+	// JSON 데이터 <-- 자바 List<>
 	@RequestMapping("/listJSON")
 	public List<BWriteDTO> listJSON(){
 		IWriteDAO dao = C.sqlSession.getMapper(IWriteDAO.class);
 		return dao.select();
 	}
-	
-	
-	// JSON 데이터를 자바배열로 .. 
+
+	// JSON 데이터 <-- 자바 배열
 	@RequestMapping("/arrJSON")
 	public BWriteDTO[] arrJSON(){
 		IWriteDAO dao = C.sqlSession.getMapper(IWriteDAO.class);
@@ -53,12 +51,11 @@ public class MyRestController {
 		return list.toArray(arr);
 	}
 	
-	// JSON 데이터를 자바MAP<k, v>로...
-	// map 을 return -> 그렇기때문에 object 로 return 된당
+	// JSON 데이터 <-- 자바 Map<k, v>
 	@RequestMapping("/mapJSON")
 	public Map<Integer, BWriteDTO> mapJSON(){
 		IWriteDAO dao = C.sqlSession.getMapper(IWriteDAO.class);
-		List<BWriteDTO> list = dao.select();
+		List<BWriteDTO> list =  dao.select();
 		
 		Map<Integer, BWriteDTO> map = new HashMap<Integer, BWriteDTO>();
 		
@@ -66,47 +63,71 @@ public class MyRestController {
 			map.put(dto.getUid(), dto);
 		}
 		
-		return map;
+		return map;		
 	}
 	
-	
-	// ================= 자바 객체를 XML 데이터로 .... ============================//
+	// XML데이터 <-- 자바객체
 	@RequestMapping("/helloXML")
-	public EmployeeVo helloXML() {
+	public EmployeeVO helloXML() {
 		return
-		new EmployeeVo(100, "홍길", 200, new int[] {10, 20,30}, 34.2);
+			new EmployeeVO(100, "홍길동", 200, new int[] {10, 20, 30}, 34.2);
 	}
 	
-	// XML 데이터를 자바 List<> 
+	
+	// XML데이터 <-- 자바 List<>
 	@RequestMapping("/listXML")
 	public EmployeeListVO listXML() {
 		EmployeeListVO employees = new EmployeeListVO();
-			
-			EmployeeVo emp1 = new EmployeeVo(1, "조현주", 27, new int[] {78, 76, 29}, 34.2);
-			EmployeeVo emp2 = new EmployeeVo(2, "현주조", 25, new int[] {87, 67, 92}, 34.2);
-			EmployeeVo emp3 = new EmployeeVo(3, "주조현", 23, new int[] {76, 79, 97}, 34.2);
-			
-			employees.getEmployees().add(emp1);
-			employees.getEmployees().add(emp2);
-			employees.getEmployees().add(emp3);
-			
+		
+		EmployeeVO emp1 = new EmployeeVO(1, "김재현", 24, new int[] {78, 67, 92}, 34.2);
+		EmployeeVO emp2 = new EmployeeVO(2, "킹재현", 25, new int[] {22, 55, 88}, 34.2);
+		EmployeeVO emp3 = new EmployeeVO(3, "재현 킴", 27, new int[] {100, 200, 300}, 34.2);
+		
+		employees.getEmployees().add(emp1);
+		employees.getEmployees().add(emp2);
+		employees.getEmployees().add(emp3);
+		
+		
 		return employees;
 	}
 	
-	
-
 	@RequestMapping("/read/{uid}")
 	public ResponseEntity<BWriteDTO> read(@PathVariable("uid") int uid) {
 		IWriteDAO dao = C.sqlSession.getMapper(IWriteDAO.class);
 		BWriteDTO dto = dao.selectByUid(uid);
 		
-		// 데이터를 잘 읽어들였는지 확인
-		// 읽어들인 데이터가 null 이라면 ? 
-		if(dto == null) return new ResponseEntity(HttpStatus.NOT_FOUND); // 404 
+		// 실패
+		if(dto == null) return new ResponseEntity(HttpStatus.NOT_FOUND);  // 404 
 		
-		// 성공한 케이스
+		// 성공
 		return new ResponseEntity<BWriteDTO>(dto, HttpStatus.OK); // 200
 	}
 	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.lec</groupId>
 	<artifactId>sts19_rest</artifactId>
-	<name>STS19_rest</name>
+	<name>STS19_REST</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -152,15 +152,24 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>1.3.2</version>
 		</dependency>
-				    
-		<!-- Jackson databind -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+
+		<!-- Jackson databind -->	
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.9.8</version>
+		</dependency>					   
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.8</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
+				    
 		    
 	</dependencies>
     <build>

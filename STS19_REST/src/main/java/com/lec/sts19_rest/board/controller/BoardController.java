@@ -2,7 +2,6 @@ package com.lec.sts19_rest.board.controller;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +16,7 @@ import com.lec.sts19_rest.board.command.BSelectCommand;
 import com.lec.sts19_rest.board.command.BUpdateCommand;
 import com.lec.sts19_rest.board.command.BViewCommand;
 import com.lec.sts19_rest.board.command.BWriteCommand;
+
 
 @Controller
 @RequestMapping("/board")
@@ -85,10 +85,6 @@ public class BoardController {
 		return "board/deleteOk";
 	}
 	
-	@RequestMapping(value="/rest")
-	public String rest() {
-		return "board/rest";
-	}
 	
 	
 }

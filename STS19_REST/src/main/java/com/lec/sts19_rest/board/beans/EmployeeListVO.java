@@ -6,21 +6,33 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="employees")
+@XmlRootElement(name="employees")  // <employees> ~ </employees>
 public class EmployeeListVO {
-	
-	//List 멤버 
-	@XmlElement
-	private List<EmployeeVo> emp
-		= new ArrayList<EmployeeVo>();
 
-	
-	
-	public List<EmployeeVo> getEmployees() {
+	// List 멤버 --> <emp>~</emp> .. 들로 만들어 진다.
+	@XmlElement
+	private List<EmployeeVO> emp = new ArrayList<EmployeeVO>();
+
+	public List<EmployeeVO> getEmployees() {
 		return emp;
 	}
 	
 	
-	
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
