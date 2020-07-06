@@ -10,7 +10,7 @@
   border-radius: 5px;
 }
 
-.success {background-color: #4CAF50;} /* Green */
+.success {background-color: #4CAF50;} /* Green and test */
 .success:hover {background-color: #46a049;}
 
 .info {background-color: #2196F3;} /* Blue */
